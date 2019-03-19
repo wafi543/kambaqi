@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		ABDAE0E0224150D000BFE130 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDAE0DF224150D000BFE130 /* AppDelegate.swift */; };
-		ABDAE0E2224150D000BFE130 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDAE0E1224150D000BFE130 /* ViewController.swift */; };
 		ABDAE0E5224150D000BFE130 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABDAE0E3224150D000BFE130 /* Main.storyboard */; };
 		ABDAE0E8224150D000BFE130 /* kambaqi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ABDAE0E6224150D000BFE130 /* kambaqi.xcdatamodeld */; };
 		ABDAE0EA224150D100BFE130 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABDAE0E9224150D100BFE130 /* Assets.xcassets */; };
@@ -18,7 +17,6 @@
 /* Begin PBXFileReference section */
 		ABDAE0DC224150D000BFE130 /* kambaqi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kambaqi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABDAE0DF224150D000BFE130 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ABDAE0E1224150D000BFE130 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ABDAE0E4224150D000BFE130 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ABDAE0E7224150D000BFE130 /* kambaqi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = kambaqi.xcdatamodel; sourceTree = "<group>"; };
 		ABDAE0E9224150D100BFE130 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,7 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				ABDAE0DF224150D000BFE130 /* AppDelegate.swift */,
-				ABDAE0E1224150D000BFE130 /* ViewController.swift */,
 				ABDAE0E3224150D000BFE130 /* Main.storyboard */,
 				ABDAE0E9224150D100BFE130 /* Assets.xcassets */,
 				ABDAE0EB224150D100BFE130 /* LaunchScreen.storyboard */,
@@ -77,6 +74,7 @@
 				ABDAE0D8224150D000BFE130 /* Sources */,
 				ABDAE0D9224150D000BFE130 /* Frameworks */,
 				ABDAE0DA224150D000BFE130 /* Resources */,
+				ABDAE0F42241518A00BFE130 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -133,12 +131,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		ABDAE0F42241518A00BFE130 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		ABDAE0D8224150D000BFE130 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABDAE0E2224150D000BFE130 /* ViewController.swift in Sources */,
 				ABDAE0E0224150D000BFE130 /* AppDelegate.swift in Sources */,
 				ABDAE0E8224150D000BFE130 /* kambaqi.xcdatamodeld in Sources */,
 			);
@@ -217,7 +234,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -272,7 +289,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -289,6 +306,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RPSDHNQWHN;
 				INFOPLIST_FILE = kambaqi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,7 +314,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kambaqistars.kambaqi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -307,6 +325,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RPSDHNQWHN;
 				INFOPLIST_FILE = kambaqi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -314,7 +333,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kambaqistars.kambaqi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
