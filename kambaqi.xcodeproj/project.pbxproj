@@ -7,21 +7,51 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61AC4864072623E8589F1BD5 /* Pods_kambaqi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E19A98B64B93DCB56F9576 /* Pods_kambaqi.framework */; };
 		ABDAE0E0224150D000BFE130 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDAE0DF224150D000BFE130 /* AppDelegate.swift */; };
-		ABDAE0E5224150D000BFE130 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABDAE0E3224150D000BFE130 /* Main.storyboard */; };
-		ABDAE0E8224150D000BFE130 /* kambaqi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ABDAE0E6224150D000BFE130 /* kambaqi.xcdatamodeld */; };
 		ABDAE0EA224150D100BFE130 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABDAE0E9224150D100BFE130 /* Assets.xcassets */; };
 		ABDAE0ED224150D100BFE130 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABDAE0EB224150D100BFE130 /* LaunchScreen.storyboard */; };
+		ABDAE0F82241525E00BFE130 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABDAE0F52241525E00BFE130 /* GoogleService-Info.plist */; };
+		ABDAE106224152DF00BFE130 /* EventsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDAE0FB224152DF00BFE130 /* EventsVC.swift */; };
+		ABDAE107224152DF00BFE130 /* SoonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDAE0FC224152DF00BFE130 /* SoonVC.swift */; };
+		ABDAE108224152DF00BFE130 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABDAE0FD224152DF00BFE130 /* Main.storyboard */; };
+		ABDAE109224152DF00BFE130 /* AdsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDAE0FF224152DF00BFE130 /* AdsVC.swift */; };
+		ABDAE10A224152DF00BFE130 /* TodayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDAE100224152DF00BFE130 /* TodayVC.swift */; };
+		ABDAE10B224152DF00BFE130 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDAE101224152DF00BFE130 /* MainVC.swift */; };
+		ABDAE10C224152DF00BFE130 /* Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDAE103224152DF00BFE130 /* Cells.swift */; };
+		ABDAE10D224152DF00BFE130 /* Helper4Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDAE104224152DF00BFE130 /* Helper4Swift.swift */; };
+		ABDAE10E224152DF00BFE130 /* Structs & Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDAE105224152DF00BFE130 /* Structs & Models.swift */; };
+		ABDAE113224152EA00BFE130 /* Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDAE10F224152E900BFE130 /* Names.swift */; };
+		ABDAE114224152EA00BFE130 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDAE110224152E900BFE130 /* Colors.swift */; };
+		ABDAE115224152EA00BFE130 /* CustomViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDAE111224152EA00BFE130 /* CustomViews.swift */; };
+		ABDAE116224152EA00BFE130 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDAE112224152EA00BFE130 /* Core.swift */; };
+		ABDAE11C2241539B00BFE130 /* kambaqi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ABDAE11A2241539B00BFE130 /* kambaqi.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		218276F69BB3EE580BD72896 /* Pods-kambaqi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kambaqi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kambaqi/Pods-kambaqi.debug.xcconfig"; sourceTree = "<group>"; };
+		32E19A98B64B93DCB56F9576 /* Pods_kambaqi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kambaqi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABDAE0DC224150D000BFE130 /* kambaqi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kambaqi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABDAE0DF224150D000BFE130 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ABDAE0E4224150D000BFE130 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		ABDAE0E7224150D000BFE130 /* kambaqi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = kambaqi.xcdatamodel; sourceTree = "<group>"; };
 		ABDAE0E9224150D100BFE130 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ABDAE0EC224150D100BFE130 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABDAE0EE224150D100BFE130 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABDAE0F52241525E00BFE130 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ABDAE0FB224152DF00BFE130 /* EventsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsVC.swift; sourceTree = "<group>"; };
+		ABDAE0FC224152DF00BFE130 /* SoonVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoonVC.swift; sourceTree = "<group>"; };
+		ABDAE0FE224152DF00BFE130 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ABDAE0FF224152DF00BFE130 /* AdsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdsVC.swift; sourceTree = "<group>"; };
+		ABDAE100224152DF00BFE130 /* TodayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayVC.swift; sourceTree = "<group>"; };
+		ABDAE101224152DF00BFE130 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		ABDAE103224152DF00BFE130 /* Cells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cells.swift; sourceTree = "<group>"; };
+		ABDAE104224152DF00BFE130 /* Helper4Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper4Swift.swift; sourceTree = "<group>"; };
+		ABDAE105224152DF00BFE130 /* Structs & Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Structs & Models.swift"; sourceTree = "<group>"; };
+		ABDAE10F224152E900BFE130 /* Names.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Names.swift; sourceTree = "<group>"; };
+		ABDAE110224152E900BFE130 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		ABDAE111224152EA00BFE130 /* CustomViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViews.swift; sourceTree = "<group>"; };
+		ABDAE112224152EA00BFE130 /* Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
+		ABDAE11B2241539B00BFE130 /* kambaqi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = kambaqi.xcdatamodel; sourceTree = "<group>"; };
+		EFC29CC6E7EFB2B3139AD624 /* Pods-kambaqi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kambaqi.release.xcconfig"; path = "Pods/Target Support Files/Pods-kambaqi/Pods-kambaqi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61AC4864072623E8589F1BD5 /* Pods_kambaqi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +71,8 @@
 			children = (
 				ABDAE0DE224150D000BFE130 /* kambaqi */,
 				ABDAE0DD224150D000BFE130 /* Products */,
+				FFC23B6C6DEF22047678E859 /* Pods */,
+				AEA46B9785811C93783E7415 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +88,59 @@
 			isa = PBXGroup;
 			children = (
 				ABDAE0DF224150D000BFE130 /* AppDelegate.swift */,
-				ABDAE0E3224150D000BFE130 /* Main.storyboard */,
+				ABDAE110224152E900BFE130 /* Colors.swift */,
+				ABDAE112224152EA00BFE130 /* Core.swift */,
+				ABDAE111224152EA00BFE130 /* CustomViews.swift */,
+				ABDAE10F224152E900BFE130 /* Names.swift */,
+				ABDAE0FA224152DF00BFE130 /* Main Controllers */,
+				ABDAE102224152DF00BFE130 /* Cells & Helpers */,
 				ABDAE0E9224150D100BFE130 /* Assets.xcassets */,
 				ABDAE0EB224150D100BFE130 /* LaunchScreen.storyboard */,
 				ABDAE0EE224150D100BFE130 /* Info.plist */,
-				ABDAE0E6224150D000BFE130 /* kambaqi.xcdatamodeld */,
+				ABDAE0F52241525E00BFE130 /* GoogleService-Info.plist */,
+				ABDAE11A2241539B00BFE130 /* kambaqi.xcdatamodeld */,
 			);
 			path = kambaqi;
+			sourceTree = "<group>";
+		};
+		ABDAE0FA224152DF00BFE130 /* Main Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ABDAE0FB224152DF00BFE130 /* EventsVC.swift */,
+				ABDAE0FC224152DF00BFE130 /* SoonVC.swift */,
+				ABDAE0FD224152DF00BFE130 /* Main.storyboard */,
+				ABDAE0FF224152DF00BFE130 /* AdsVC.swift */,
+				ABDAE100224152DF00BFE130 /* TodayVC.swift */,
+				ABDAE101224152DF00BFE130 /* MainVC.swift */,
+			);
+			path = "Main Controllers";
+			sourceTree = "<group>";
+		};
+		ABDAE102224152DF00BFE130 /* Cells & Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				ABDAE103224152DF00BFE130 /* Cells.swift */,
+				ABDAE104224152DF00BFE130 /* Helper4Swift.swift */,
+				ABDAE105224152DF00BFE130 /* Structs & Models.swift */,
+			);
+			path = "Cells & Helpers";
+			sourceTree = "<group>";
+		};
+		AEA46B9785811C93783E7415 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				32E19A98B64B93DCB56F9576 /* Pods_kambaqi.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FFC23B6C6DEF22047678E859 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				218276F69BB3EE580BD72896 /* Pods-kambaqi.debug.xcconfig */,
+				EFC29CC6E7EFB2B3139AD624 /* Pods-kambaqi.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,10 +150,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ABDAE0F1224150D100BFE130 /* Build configuration list for PBXNativeTarget "kambaqi" */;
 			buildPhases = (
+				941212A691F0C9FBBDA2DFB5 /* [CP] Check Pods Manifest.lock */,
 				ABDAE0D8224150D000BFE130 /* Sources */,
 				ABDAE0D9224150D000BFE130 /* Frameworks */,
 				ABDAE0DA224150D000BFE130 /* Resources */,
 				ABDAE0F42241518A00BFE130 /* ShellScript */,
+				899BD3872AC54EE6381F5AF2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -124,24 +205,73 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABDAE0ED224150D100BFE130 /* LaunchScreen.storyboard in Resources */,
+				ABDAE0F82241525E00BFE130 /* GoogleService-Info.plist in Resources */,
 				ABDAE0EA224150D100BFE130 /* Assets.xcassets in Resources */,
-				ABDAE0E5224150D000BFE130 /* Main.storyboard in Resources */,
+				ABDAE108224152DF00BFE130 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		899BD3872AC54EE6381F5AF2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-kambaqi/Pods-kambaqi-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ARSLineProgress/ARSLineProgress.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARSLineProgress.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kambaqi/Pods-kambaqi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		941212A691F0C9FBBDA2DFB5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-kambaqi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		ABDAE0F42241518A00BFE130 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-			);
-			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
@@ -156,28 +286,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABDAE10A224152DF00BFE130 /* TodayVC.swift in Sources */,
+				ABDAE114224152EA00BFE130 /* Colors.swift in Sources */,
+				ABDAE10E224152DF00BFE130 /* Structs & Models.swift in Sources */,
+				ABDAE10D224152DF00BFE130 /* Helper4Swift.swift in Sources */,
+				ABDAE10C224152DF00BFE130 /* Cells.swift in Sources */,
+				ABDAE113224152EA00BFE130 /* Names.swift in Sources */,
+				ABDAE11C2241539B00BFE130 /* kambaqi.xcdatamodeld in Sources */,
 				ABDAE0E0224150D000BFE130 /* AppDelegate.swift in Sources */,
-				ABDAE0E8224150D000BFE130 /* kambaqi.xcdatamodeld in Sources */,
+				ABDAE106224152DF00BFE130 /* EventsVC.swift in Sources */,
+				ABDAE109224152DF00BFE130 /* AdsVC.swift in Sources */,
+				ABDAE116224152EA00BFE130 /* Core.swift in Sources */,
+				ABDAE107224152DF00BFE130 /* SoonVC.swift in Sources */,
+				ABDAE10B224152DF00BFE130 /* MainVC.swift in Sources */,
+				ABDAE115224152EA00BFE130 /* CustomViews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		ABDAE0E3224150D000BFE130 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ABDAE0E4224150D000BFE130 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		ABDAE0EB224150D100BFE130 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				ABDAE0EC224150D100BFE130 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		ABDAE0FD224152DF00BFE130 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABDAE0FE224152DF00BFE130 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -301,6 +443,7 @@
 		};
 		ABDAE0F2224150D100BFE130 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 218276F69BB3EE580BD72896 /* Pods-kambaqi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -311,7 +454,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kambaqistars.kambaqi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kambaqistars2.kambaqi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -320,6 +463,7 @@
 		};
 		ABDAE0F3224150D100BFE130 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFC29CC6E7EFB2B3139AD624 /* Pods-kambaqi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -330,7 +474,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kambaqistars.kambaqi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kambaqistars2.kambaqi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -361,12 +505,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		ABDAE0E6224150D000BFE130 /* kambaqi.xcdatamodeld */ = {
+		ABDAE11A2241539B00BFE130 /* kambaqi.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				ABDAE0E7224150D000BFE130 /* kambaqi.xcdatamodel */,
+				ABDAE11B2241539B00BFE130 /* kambaqi.xcdatamodel */,
 			);
-			currentVersion = ABDAE0E7224150D000BFE130 /* kambaqi.xcdatamodel */;
+			currentVersion = ABDAE11B2241539B00BFE130 /* kambaqi.xcdatamodel */;
 			path = kambaqi.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

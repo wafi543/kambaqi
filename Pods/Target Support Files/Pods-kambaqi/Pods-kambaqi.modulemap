@@ -1,0 +1,6 @@
+framework module Pods_kambaqi {
+  umbrella header "Pods-kambaqi-umbrella.h"
+
+  export *
+  module * { export * }
+}
