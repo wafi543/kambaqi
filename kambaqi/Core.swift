@@ -55,4 +55,26 @@ class Core {
             return "\(year)/\(month)/\(day)".toDate(dateFormatterStr, "en_SA")
         }
     }
+    
+    func eventIntervalStr (_ eventInterval : Int) -> String {
+        switch eventInterval {
+        case 1:
+            return "شهري"
+        case 2:
+            return "سنوي"
+        default:
+            return ""
+        }
+    }
+    
+    func remainingDays (_ date : Date) -> Int {
+        let days = date.days(from: Date())
+        
+        if date.hours(from: Date()) % 24 > 1 {
+            return days + 1
+        }else {
+            return days
+        }
+        
+    }
 }

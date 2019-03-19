@@ -13,7 +13,7 @@
         <!--كم باقي؟-->
         <scene sceneID="8oN-6U-kcT">
             <objects>
-                <viewController storyboardIdentifier="MainVC" id="wXZ-vz-lEi" customClass="MainVC" customModule="Kambaqi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainVC" id="wXZ-vz-lEi" customClass="MainVC" customModule="kambaqi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L1s-Gc-8zu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,14 +29,14 @@
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MainCell" id="NCr-eE-ao3" customClass="MainCell" customModule="Kambaqi" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MainCell" id="NCr-eE-ao3" customClass="MainCell" customModule="kambaqi" customModuleProvider="target">
                                         <rect key="frame" x="195" y="10" width="170" height="170"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KQW-hI-TYn" customClass="GradientView" customModule="Kambaqi" customModuleProvider="target">
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KQW-hI-TYn" customClass="GradientView" customModule="kambaqi" customModuleProvider="target">
                                                     <rect key="frame" x="3" y="3" width="164" height="130"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alerts-icon" translatesAutoresizingMaskIntoConstraints="NO" id="OId-ug-agg">
@@ -107,7 +107,7 @@
         <!--باقي على-->
         <scene sceneID="UuP-Zj-q9d">
             <objects>
-                <viewController storyboardIdentifier="EventsVC" id="eHl-2H-a9e" customClass="EventsVC" customModule="Kambaqi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventsVC" id="eHl-2H-a9e" customClass="EventsVC" customModule="kambaqi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TTT-Gk-X0n">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,14 +117,14 @@
                                 <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="scrollIndicatorInsets" minX="5" minY="5" maxX="5" maxY="10"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventCell" rowHeight="138" id="A7Z-ca-gXo" customClass="EventCell" customModule="Kambaqi" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventCell" rowHeight="138" id="A7Z-ca-gXo" customClass="EventCell" customModule="kambaqi" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="138"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A7Z-ca-gXo" id="Kgd-oR-beF">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="138"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kv0-ta-7Ri" customClass="GradientView" customModule="Kambaqi" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kv0-ta-7Ri" customClass="GradientView" customModule="kambaqi" customModuleProvider="target">
                                                     <rect key="frame" x="5" y="5" width="365" height="128"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Event Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DR1-7d-RI6">
@@ -251,7 +251,7 @@
         <!--قد يهمك-->
         <scene sceneID="9pz-KT-aLS">
             <objects>
-                <viewController storyboardIdentifier="AdsVC" id="Dad-kH-emj" customClass="AdsVC" customModule="Kambaqi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AdsVC" id="Dad-kH-emj" customClass="AdsVC" customModule="kambaqi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bPk-QM-ae9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -261,14 +261,14 @@
                                 <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="scrollIndicatorInsets" minX="5" minY="5" maxX="5" maxY="10"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AdCell" rowHeight="280" id="qVp-i0-dIK" customClass="AdCell" customModule="Kambaqi" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AdCell" rowHeight="280" id="qVp-i0-dIK" customClass="AdCell" customModule="kambaqi" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="280"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qVp-i0-dIK" id="i8z-26-4W1">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="meN-l3-0f3" customClass="GradientView" customModule="Kambaqi" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="meN-l3-0f3" customClass="GradientView" customModule="kambaqi" customModuleProvider="target">
                                                     <rect key="frame" x="5" y="5" width="365" height="270"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TX5-Uw-eeN">
@@ -328,12 +328,12 @@
         <!--التاريخ الحالي-->
         <scene sceneID="7RP-Pf-nSI">
             <objects>
-                <viewController storyboardIdentifier="TodayVC" id="609-hN-p9K" customClass="TodayVC" customModule="Kambaqi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TodayVC" id="609-hN-p9K" customClass="TodayVC" customModule="kambaqi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="haU-pY-sWt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F6Y-Jl-GM9" customClass="GradientView" customModule="Kambaqi" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F6Y-Jl-GM9" customClass="GradientView" customModule="kambaqi" customModuleProvider="target">
                                 <rect key="frame" x="15" y="35" width="345" height="552"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DayName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="por-H6-6Bt">
@@ -426,12 +426,12 @@
         <!--الحدث القادم-->
         <scene sceneID="vGc-dU-3Qn">
             <objects>
-                <viewController storyboardIdentifier="SoonVC" id="CSD-ma-NOQ" customClass="SoonVC" customModule="Kambaqi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SoonVC" id="CSD-ma-NOQ" customClass="SoonVC" customModule="kambaqi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pym-KL-nCS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J4o-wG-jB6" customClass="GradientView" customModule="Kambaqi" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J4o-wG-jB6" customClass="GradientView" customModule="kambaqi" customModuleProvider="target">
                                 <rect key="frame" x="15" y="35" width="345" height="552"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الوقت المتبقي حتى:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gt6-Mq-cZS">
@@ -440,9 +440,9 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSi-hg-veW">
-                                        <rect key="frame" x="75.5" y="60" width="194.5" height="42"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSi-hg-veW">
+                                        <rect key="frame" x="0.0" y="60" width="345" height="37"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
                                         <color key="textColor" red="0.1058823529" green="0.4431372549" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -495,10 +495,12 @@
                                     <constraint firstItem="gt6-Mq-cZS" firstAttribute="centerX" secondItem="J4o-wG-jB6" secondAttribute="centerX" id="ZLk-Vh-c7c"/>
                                     <constraint firstItem="FSi-hg-veW" firstAttribute="top" secondItem="gt6-Mq-cZS" secondAttribute="bottom" constant="15" id="cni-uP-Z5U"/>
                                     <constraint firstItem="Rrm-yp-RN1" firstAttribute="centerX" secondItem="J4o-wG-jB6" secondAttribute="centerX" id="hB8-a6-2b5"/>
+                                    <constraint firstItem="FSi-hg-veW" firstAttribute="leading" secondItem="J4o-wG-jB6" secondAttribute="leading" id="jCH-sQ-Ws4"/>
                                     <constraint firstItem="Rrm-yp-RN1" firstAttribute="top" secondItem="mzM-9g-u0J" secondAttribute="bottom" constant="90" id="lZ1-Ta-0PC"/>
                                     <constraint firstItem="gt6-Mq-cZS" firstAttribute="top" secondItem="J4o-wG-jB6" secondAttribute="top" constant="15" id="mfD-FB-9mv"/>
                                     <constraint firstItem="TLX-4a-fWG" firstAttribute="centerY" secondItem="Rrm-yp-RN1" secondAttribute="centerY" id="oNv-F2-fbn"/>
                                     <constraint firstItem="mzM-9g-u0J" firstAttribute="centerX" secondItem="J4o-wG-jB6" secondAttribute="centerX" id="wjH-cg-1ge"/>
+                                    <constraint firstAttribute="trailing" secondItem="FSi-hg-veW" secondAttribute="trailing" id="yFa-tF-KO9"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">

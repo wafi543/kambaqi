@@ -38,10 +38,6 @@ class EventsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let eventName = data.value(forKey: "eventName") as? String ?? ""
                 let date = data.value(forKey: "date") as? Date ?? Date()
                 
-//                let day = data.value(forKey: "day") as? Int ?? 0
-//                let month = data.value(forKey: "month") as? Int ?? 0
-//                let year = data.value(forKey: "year") as? Int ?? 0
-                
                 let event = Event.init(id: id, calendarType: calendarType, eventInterval: eventInterval, eventName: eventName, date: date)
                 self.events.append(event)
             }
@@ -50,7 +46,6 @@ class EventsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func saveToCoreData (_ event : Event) {
-        print("saveToCoreData")
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "Events", in: context)
         let newObject = NSManagedObject(entity: entity!, insertInto: context)
@@ -60,10 +55,6 @@ class EventsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         newObject.setValue(event.eventInterval, forKey: "eventInterval")
         newObject.setValue(event.eventName, forKey: "eventName")
         newObject.setValue(event.date, forKey: "date")
-        
-//        newObject.setValue(event.day, forKey: "day")
-//        newObject.setValue(event.month, forKey: "month")
-//        newObject.setValue(event.year, forKey: "year")
         print(newObject)
         do {try context.save()} catch {print("Error. vc: \(self.description ) Line: \(#line)")}
     }
@@ -107,23 +98,12 @@ class EventsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let event = events[indexPath.row]
         cell.Name.text = event.eventName
         
-        func setType (_ eventType : String) {
-            switch event.eventInterval {
-            case 1:
-                cell.EventType.text = "شهري \(eventType)"
-            case 2:
-                cell.EventType.text = "سنوي \(eventType)"
-            default:
-                cell.EventType.text = "\(eventType)"
-            }
-        }
-        
         if event.calendarType == 1 {
-            cell.Days.text = "\(event.date.days(from: Date())+1)"
-            setType("ميلادي")
+            cell.Days.text = "\(core.remainingDays(event.date))"
+            cell.EventType.text = "\(core.eventIntervalStr(event.eventInterval)) ميلادي"
         }else {
-            cell.Days.text = "\(event.date.days(from: Date())+1)"
-            setType("هجري")
+            cell.Days.text = "\(core.remainingDays(event.date))"
+            cell.EventType.text = "\(core.eventIntervalStr(event.eventInterval)) هجري"
         }
         
         if event.eventInterval != 0 {cell.OneTime.text = ""} else {cell.OneTime.text = " - مرة واحدة"}
