@@ -88,10 +88,10 @@
 			isa = PBXGroup;
 			children = (
 				ABDAE0DF224150D000BFE130 /* AppDelegate.swift */,
-				ABDAE110224152E900BFE130 /* Colors.swift */,
-				ABDAE112224152EA00BFE130 /* Core.swift */,
 				ABDAE111224152EA00BFE130 /* CustomViews.swift */,
+				ABDAE110224152E900BFE130 /* Colors.swift */,
 				ABDAE10F224152E900BFE130 /* Names.swift */,
+				ABDAE112224152EA00BFE130 /* Core.swift */,
 				ABDAE0FA224152DF00BFE130 /* Main Controllers */,
 				ABDAE102224152DF00BFE130 /* Cells & Helpers */,
 				ABDAE0E9224150D100BFE130 /* Assets.xcassets */,
@@ -106,12 +106,12 @@
 		ABDAE0FA224152DF00BFE130 /* Main Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				ABDAE0FB224152DF00BFE130 /* EventsVC.swift */,
-				ABDAE0FC224152DF00BFE130 /* SoonVC.swift */,
 				ABDAE0FD224152DF00BFE130 /* Main.storyboard */,
-				ABDAE0FF224152DF00BFE130 /* AdsVC.swift */,
-				ABDAE100224152DF00BFE130 /* TodayVC.swift */,
 				ABDAE101224152DF00BFE130 /* MainVC.swift */,
+				ABDAE0FC224152DF00BFE130 /* SoonVC.swift */,
+				ABDAE0FB224152DF00BFE130 /* EventsVC.swift */,
+				ABDAE100224152DF00BFE130 /* TodayVC.swift */,
+				ABDAE0FF224152DF00BFE130 /* AdsVC.swift */,
 			);
 			path = "Main Controllers";
 			sourceTree = "<group>";
