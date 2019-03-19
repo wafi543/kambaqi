@@ -58,8 +58,8 @@ class AdsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func getData () {
         ARSLineProgress.show()
         dbPhotos.observe(.value, with: { (snapshot) in
-            print(snapshot)
             self.photos.removeAll()
+            core.deleteEntity("Photos")
             for snp in snapshot.children {
                 guard let document = snp as? DataSnapshot else {
                     print("Something wrong with Firebase DataSnapshot")

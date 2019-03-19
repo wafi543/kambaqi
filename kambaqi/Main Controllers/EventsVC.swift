@@ -39,7 +39,8 @@ class EventsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let date = data.value(forKey: "date") as? Date ?? Date()
                 
                 let event = Event.init(id: id, calendarType: calendarType, eventInterval: eventInterval, eventName: eventName, date: date)
-                self.events.append(event)
+                let isEventDisabled = defauls.bool(forKey: "\(event.id)-switch")
+                if isEventDisabled == false {self.events.append(event)}
             }
             DispatchQueue.main.async {self.mainTableView.reloadData(); ARSLineProgress.hide()}
         } catch {print("Failed")}
@@ -63,6 +64,7 @@ class EventsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         ARSLineProgress.show()
         dbEvents.observe(.value, with: { (snapshot) in
             self.events.removeAll()
+            core.deleteEntity("Events")
             for snp in snapshot.children {
                 guard let document = snp as? DataSnapshot else {
                     print("Something wrong with Firebase DataSnapshot")
@@ -80,8 +82,10 @@ class EventsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 guard let date = core.generateDate(calendarType, day, month, year) else {return}
                 let event = Event.init(id: id, calendarType: calendarType, eventInterval: eventInterval, eventName: eventName, date: date)
                 
-                self.events.append(event)
                 self.saveToCoreData(event)
+                
+                let isEventDisabled = defauls.bool(forKey: "\(event.id)-switch")
+                if isEventDisabled == false {self.events.append(event)}
                 
                 DispatchQueue.main.async {
                     self.mainTableView.reloadData(); ARSLineProgress.hide()

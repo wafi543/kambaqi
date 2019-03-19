@@ -24,3 +24,9 @@ class EventCell: UITableViewCell {
 class AdCell: UITableViewCell {
     @IBOutlet var Photo: UIImageView!
 }
+
+class SettingCell: UITableViewCell {
+    @IBOutlet var toggle: UIButton!
+    @IBOutlet var EventName: CustomLabel!
+    
+}

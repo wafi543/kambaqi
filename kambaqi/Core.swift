@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import ARSLineProgress
 import Firebase
+import CoreData
 
 // Public Declaration
 let defauls = UserDefaults.standard
@@ -43,6 +44,8 @@ class Core {
             return mainStoryBoard.instantiateViewController(withIdentifier: "TodayVC")
         case names.mainTitles[4]:
             return mainStoryBoard.instantiateViewController(withIdentifier: "AdsVC")
+        case names.mainTitles[5]:
+            return mainStoryBoard.instantiateViewController(withIdentifier: "SettingVC")
         default:
             return nil
         }
@@ -72,4 +75,22 @@ class Core {
         let days = date2.days(from: Date())
         if date2.hours(from: Date()) % 24 > 1 {return days + 1}else {return days}
     }
+    
+    func deleteEntity (_ entity : String) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let incidents = try context.fetch(request)
+            if incidents.count > 0 {
+                for result in incidents {
+                    context.delete(result as! NSManagedObject)
+                    print("NSManagedObject has been Deleted")
+                }
+                try context.save()
+            }
+        } catch {}
+    }
+    
 }

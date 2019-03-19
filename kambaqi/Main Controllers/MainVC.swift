@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Firebase
-import CoreData
 
 class MainVC: UIViewController , UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     @IBOutlet var mainCollectionView: UICollectionView!
@@ -17,45 +15,6 @@ class MainVC: UIViewController , UICollectionViewDelegate, UICollectionViewDataS
         super.viewDidLoad()
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
-        getData()
-    }
-    
-    func getData () {
-        dbEvents.observe(.value, with: { (snapshot) in
-            for snp in snapshot.children {
-                guard let document = snp as? DataSnapshot else {
-                    print("Something wrong with Firebase DataSnapshot")
-                    return
-                }
-                let snapValue = document.value as? NSDictionary
-                let id = document.key
-                let calendarType = snapValue?.value(forKey: "calendarType") as? Int ?? 0
-                let eventInterval = snapValue?.value(forKey: "eventInterval") as? Int ?? 0
-                let eventName = snapValue?.value(forKey: "eventName") as? String ?? ""
-                let day = snapValue?.value(forKey: "day") as? Int ?? 0
-                let month = snapValue?.value(forKey: "month") as? Int ?? 0
-                let year = snapValue?.value(forKey: "year") as? Int ?? 0
-                
-                guard let date = core.generateDate(calendarType, day, month, year) else {return}
-                let event = Event.init(id: id, calendarType: calendarType, eventInterval: eventInterval, eventName: eventName, date: date)
-                
-                self.saveToCoreData(event)
-            }
-        })
-    }
-    
-    func saveToCoreData (_ event : Event) {
-        print("saveToCoreData")
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "Events", in: context)
-        let newObject = NSManagedObject(entity: entity!, insertInto: context)
-        
-        newObject.setValue(event.id, forKey: "id")
-        newObject.setValue(event.calendarType, forKey: "calendarType")
-        newObject.setValue(event.eventInterval, forKey: "eventInterval")
-        newObject.setValue(event.eventName, forKey: "eventName")
-        newObject.setValue(event.date, forKey: "date")
-        do {try context.save()} catch {print("Error. vc: \(self.description ) Line: \(#line)")}
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
