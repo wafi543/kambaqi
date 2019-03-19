@@ -119,8 +119,8 @@
 		ABDAE102224152DF00BFE130 /* Cells & Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				ABDAE103224152DF00BFE130 /* Cells.swift */,
 				ABDAE104224152DF00BFE130 /* Helper4Swift.swift */,
+				ABDAE103224152DF00BFE130 /* Cells.swift */,
 				ABDAE105224152DF00BFE130 /* Structs & Models.swift */,
 			);
 			path = "Cells & Helpers";

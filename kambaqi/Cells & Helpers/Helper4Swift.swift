@@ -475,6 +475,13 @@ extension Date {
         formatter.dateFormat = formatterStr
         return formatter.string(from: self)
     }
+    
+    mutating func addDaysComponent (_ days : Int) {
+        var component = DateComponents()
+        component.day = days
+        self = Calendar.current.date(byAdding: component, to: self)!
+    }
+    
 }
 
 extension UIView {

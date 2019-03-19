@@ -56,6 +56,7 @@ class SoonVC: UIViewController {
                 }
                 
                 let event = remainingEvents[0]
+                self.nextEvent = event
                 self.EventName.text = event.eventName
                 self.Day.text = "\(core.remainingDays(event.date))"
                 self.setMessage(event)
@@ -76,7 +77,7 @@ class SoonVC: UIViewController {
             eventInterveal = "يتكرر سنويا"
         }
         
-        if event.calendarType == 0{
+        if event.calendarType == 0 {
             eventCalender = "هجري"
         }else{
             eventCalender = "ميلادي"
@@ -88,7 +89,14 @@ class SoonVC: UIViewController {
     }
     
     @IBAction func tweet(_ sender: Any) {
-        
+        var urlStr = "https://twitter.com/intent/tweet?text=لقد تبقى \(core.remainingDays(nextEvent.date)) يوم لكي يحين موعد \(nextEvent.eventName)"
+        urlStr = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        print(urlStr)
+        if let url = URL(string: urlStr) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }else {
+            print("error make url")
+        }
     }
     
 }
