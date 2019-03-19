@@ -42,10 +42,7 @@ class SettingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         } catch {print("Failed")}
     }
     
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
-    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {return events.count}
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettingCell", for: indexPath) as! SettingCell
@@ -63,7 +60,6 @@ class SettingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         return cell
     }
-    
     
     @objc func eventToggle (sender : UIButton) {
         print("eventToggle : \(sender.tag)")

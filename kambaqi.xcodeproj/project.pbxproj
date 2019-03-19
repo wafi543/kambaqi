@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		61AC4864072623E8589F1BD5 /* Pods_kambaqi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E19A98B64B93DCB56F9576 /* Pods_kambaqi.framework */; };
 		AB9EF0E022419304001C7B73 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9EF0DF22419304001C7B73 /* SettingVC.swift */; };
+		AB9EF0E22241AD53001C7B73 /* MyEventsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9EF0E12241AD53001C7B73 /* MyEventsVC.swift */; };
 		ABDAE0E0224150D000BFE130 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDAE0DF224150D000BFE130 /* AppDelegate.swift */; };
 		ABDAE0EA224150D100BFE130 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABDAE0E9224150D100BFE130 /* Assets.xcassets */; };
 		ABDAE0ED224150D100BFE130 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABDAE0EB224150D100BFE130 /* LaunchScreen.storyboard */; };
@@ -33,6 +34,7 @@
 		218276F69BB3EE580BD72896 /* Pods-kambaqi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kambaqi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kambaqi/Pods-kambaqi.debug.xcconfig"; sourceTree = "<group>"; };
 		32E19A98B64B93DCB56F9576 /* Pods_kambaqi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kambaqi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB9EF0DF22419304001C7B73 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
+		AB9EF0E12241AD53001C7B73 /* MyEventsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsVC.swift; sourceTree = "<group>"; };
 		ABDAE0DC224150D000BFE130 /* kambaqi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kambaqi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABDAE0DF224150D000BFE130 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABDAE0E9224150D100BFE130 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				ABDAE101224152DF00BFE130 /* MainVC.swift */,
 				ABDAE0FC224152DF00BFE130 /* SoonVC.swift */,
 				ABDAE0FB224152DF00BFE130 /* EventsVC.swift */,
+				AB9EF0E12241AD53001C7B73 /* MyEventsVC.swift */,
 				ABDAE100224152DF00BFE130 /* TodayVC.swift */,
 				ABDAE0FF224152DF00BFE130 /* AdsVC.swift */,
 				AB9EF0DF22419304001C7B73 /* SettingVC.swift */,
@@ -304,6 +307,7 @@
 				ABDAE107224152DF00BFE130 /* SoonVC.swift in Sources */,
 				ABDAE10B224152DF00BFE130 /* MainVC.swift in Sources */,
 				ABDAE115224152EA00BFE130 /* CustomViews.swift in Sources */,
+				AB9EF0E22241AD53001C7B73 /* MyEventsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

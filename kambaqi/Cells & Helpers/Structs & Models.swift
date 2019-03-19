@@ -15,7 +15,15 @@ struct Event {
     var eventInterval: Int
     var eventName: String
     var date : Date
-//    var isDisplay : Bool
+}
+
+struct MyEvent {
+    var id : String
+    var eventName : String
+    var calendarType : String
+    var date : Date
+    var color : EventColor
+    var status : Bool
 }
 
 struct Photo {
