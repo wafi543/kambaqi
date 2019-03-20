@@ -60,12 +60,12 @@ class MyEventsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.editButton.addTarget(self, action: #selector(self.edit(sender:)), for: .touchUpInside)
         cell.deleteButton.tag = indexPath.row
         cell.deleteButton.addTarget(self, action: #selector(self.delete(sender:)), for: .touchUpInside)
-        cell.myEvent = self.myEvents[indexPath.row]
-        cell.configureShapesAndTimer()
         
         let myEvent = myEvents[indexPath.row]
+        cell.myEvent = myEvent
         cell.View.backgroundColor = core.decColor(names.colorNames[myEvent.color])
         cell.EventName.text = myEvent.eventName
+        cell.configureShapesAndTimer()
         return cell
     }
     

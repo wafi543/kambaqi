@@ -53,7 +53,11 @@ class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                     Helper.showBasicAlert(title: "Required ‼️", message: "هناك بيانات مفقودة", buttonTitle: "موافق", isBlue: false, vc: self, completion: nil)
                 }else {
                     if datePicker.date > Date() {
-                        myEvent = MyEvent.init(id: lastIndex, eventName: EventName.text ?? "", calendarType: CalendarType.selectedSegmentIndex, date: datePicker.date, color: selectedColor, status: status)
+                        let minute = datePicker.date.toString("mm", "en").intValue
+                        let hour = datePicker.date.toString("hh", "en").intValue
+                        print("\(hour):\(minute)")
+                        let date = Calendar.current.date(bySettingHour: hour, minute: minute, second: 00, of: datePicker.date)!
+                        myEvent = MyEvent.init(id: lastIndex, eventName: EventName.text ?? "", calendarType: CalendarType.selectedSegmentIndex, date: date, color: selectedColor, status: status)
                         saveToCoreData()
                     }else {
                         Helper.showBasicAlert(title: "تنبيه ⚠️", message: "زمن المناسبة قد مضى", buttonTitle: "موافق", isBlue: false, vc: self, completion: nil)

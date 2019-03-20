@@ -611,7 +611,7 @@ extension Dictionary where Value: Equatable {
     }
 }
 
-extension Bool{
+extension Bool {
     func getReverse() -> Bool{
         if self == true {
             return false
@@ -677,5 +677,8 @@ extension UIViewController {
 extension TimeInterval {
     var time: String {
         return String(format:"%02d:%02d", Int(self/60),  Int(ceil(truncatingRemainder(dividingBy: 60))) )
+    }
+    var seconds: String {
+        return String(format:"%02d", Int(ceil(truncatingRemainder(dividingBy: 60))))
     }
 }

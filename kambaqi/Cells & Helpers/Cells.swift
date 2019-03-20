@@ -45,12 +45,11 @@ class MyEventCell: UITableViewCell {
     @IBOutlet var SecondLabel: UILabel!
     
     var timer : Timer?
-    var myEvent : MyEvent?
+    var myEvent : MyEvent!
     
     var lineWidth : CGFloat = 3
     var radiusShape : CGFloat = 40
     var timeLeft: TimeInterval = 60
-    var endTime: Date?
     let strokeIt = CABasicAnimation(keyPath: "strokeEnd")
     
     let secondShapeLayer = CAShapeLayer()
@@ -90,16 +89,14 @@ class MyEventCell: UITableViewCell {
         // add the animation to your timeLeftShapeLayer
 //        secondShapeLayer.add(strokeIt, forKey: nil)
         // define the future end time by adding the timeLeft to now Date()
-        endTime = Date().addingTimeInterval(timeLeft)
-        print(endTime)
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
     }
     
     
     @objc func updateTime() {
         if timeLeft > 0 {
-            timeLeft = endTime?.timeIntervalSinceNow ?? 0
-            SecondLabel.text = timeLeft.time
+            timeLeft = myEvent.date.timeIntervalSinceNow
+            SecondLabel.text = timeLeft.seconds
         } else {
             SecondLabel.text = "0"
             timer?.invalidate()
