@@ -7,6 +7,14 @@
         <attribute name="eventName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="MyEvents" representedClassName="MyEvents" syncable="YES" codeGenerationType="class">
+        <attribute name="calendarType" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="color" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="eventName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <entity name="Photos" representedClassName="Photos" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mName" optional="YES" attributeType="String" syncable="YES"/>
@@ -15,5 +23,6 @@
     <elements>
         <element name="Events" positionX="-63" positionY="-18" width="128" height="120"/>
         <element name="Photos" positionX="-54" positionY="45" width="128" height="90"/>
+        <element name="MyEvents" positionX="-54" positionY="36" width="128" height="135"/>
     </elements>
 </model>

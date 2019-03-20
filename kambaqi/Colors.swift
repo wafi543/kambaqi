@@ -20,10 +20,16 @@ class Colors {
     let minuteColor2 = helper.hexStringToUIColor(hex: "eef6e3")
     let secondColor1 = helper.hexStringToUIColor(hex: "f16a70")
     let secondColor2 = helper.hexStringToUIColor(hex: "fbe0e1")
+    let orange = helper.hexStringToUIColor(hex: "fbbc04")
+    let cyan = helper.hexStringToUIColor(hex: "a7ffeb")
+    let yellow = helper.hexStringToUIColor(hex: "fff475")
+    let green = helper.hexStringToUIColor(hex: "ccff90")
+    let enabled = helper.hexStringToUIColor(hex: "33D27B")
+    let disabled = helper.hexStringToUIColor(hex: "D50606")
 }
 
 class Scheme1 {
-    let c1 = helper.hexStringToUIColor(hex: "1B7152")
+    let c1 = helper.hexStringToUIColor(hex: "247D3D")
     let c2 = helper.hexStringToUIColor(hex: "ffffff")
     let c3 = helper.hexStringToUIColor(hex: "ffffff")
     let c4 = helper.hexStringToUIColor(hex: "ffffff")

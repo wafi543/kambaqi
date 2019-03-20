@@ -325,6 +325,11 @@ public class ConfigureButton {
     @IBInspectable var shadowOpacity : Float = 0.5 {didSet{sharedInit()}}
     @IBInspectable var radiusType : Int = 2 {didSet{sharedInit()}}
     
+    @IBInspectable var borderColor : UIColor = UIColor.clear {didSet{sharedInit()}}
+    @IBInspectable var borderWidth : CGFloat = 0 {didSet{sharedInit()}}
+    
+    
+    
     func sharedInit() {
         clipsToBounds = true
         self.layer.cornerRadius = sharedFunc.radiusType(radiusType, frame.size.height)
@@ -340,6 +345,8 @@ public class ConfigureButton {
             self.layer.masksToBounds = false
             self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.layer.cornerRadius).cgPath
         }
+        self.layer.borderColor = borderColor.cgColor
+        self.layer.borderWidth = borderWidth
     }
     
     

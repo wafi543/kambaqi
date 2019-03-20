@@ -95,4 +95,19 @@ class Core {
         } catch {}
     }
     
+    func decColor (_ name : String) -> UIColor {
+        switch name {
+        case names.colorNames[1]:
+            return colors.orange
+        case names.colorNames[2]:
+            return colors.cyan
+        case names.colorNames[3]:
+            return colors.yellow
+        case names.colorNames[4]:
+            return colors.green
+        default:
+            return UIColor.white
+        }
+    }
+    
 }

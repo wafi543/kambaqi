@@ -18,11 +18,11 @@ struct Event {
 }
 
 struct MyEvent {
-    var id : String
+    var id : Int
     var eventName : String
-    var calendarType : String
+    var calendarType : Int
     var date : Date
-    var color : EventColor
+    var color : Int
     var status : Bool
 }
 
@@ -44,4 +44,9 @@ enum DateType : String {
     case None
     case Monthly
     case Annual
+}
+
+enum VCType : String {
+    case Normal
+    case EditVC
 }

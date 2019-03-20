@@ -673,3 +673,9 @@ extension UIViewController {
         self.view.makeToast(message, duration: 2.0, position: .center, style: style)
     }
 }
+
+extension TimeInterval {
+    var time: String {
+        return String(format:"%02d:%02d", Int(self/60),  Int(ceil(truncatingRemainder(dividingBy: 60))) )
+    }
+}

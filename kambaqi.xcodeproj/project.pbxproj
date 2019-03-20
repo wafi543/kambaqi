@@ -10,9 +10,10 @@
 		61AC4864072623E8589F1BD5 /* Pods_kambaqi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E19A98B64B93DCB56F9576 /* Pods_kambaqi.framework */; };
 		AB9EF0E022419304001C7B73 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9EF0DF22419304001C7B73 /* SettingVC.swift */; };
 		AB9EF0E22241AD53001C7B73 /* MyEventsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9EF0E12241AD53001C7B73 /* MyEventsVC.swift */; };
+		AB9EF0E42241BEA7001C7B73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB9EF0E32241BEA7001C7B73 /* LaunchScreen.storyboard */; };
+		AB9EF0E62241EA82001C7B73 /* AddEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9EF0E52241EA82001C7B73 /* AddEventVC.swift */; };
 		ABDAE0E0224150D000BFE130 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDAE0DF224150D000BFE130 /* AppDelegate.swift */; };
 		ABDAE0EA224150D100BFE130 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABDAE0E9224150D100BFE130 /* Assets.xcassets */; };
-		ABDAE0ED224150D100BFE130 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABDAE0EB224150D100BFE130 /* LaunchScreen.storyboard */; };
 		ABDAE0F82241525E00BFE130 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABDAE0F52241525E00BFE130 /* GoogleService-Info.plist */; };
 		ABDAE106224152DF00BFE130 /* EventsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDAE0FB224152DF00BFE130 /* EventsVC.swift */; };
 		ABDAE107224152DF00BFE130 /* SoonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDAE0FC224152DF00BFE130 /* SoonVC.swift */; };
@@ -35,10 +36,12 @@
 		32E19A98B64B93DCB56F9576 /* Pods_kambaqi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kambaqi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB9EF0DF22419304001C7B73 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		AB9EF0E12241AD53001C7B73 /* MyEventsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsVC.swift; sourceTree = "<group>"; };
+		AB9EF0E32241BEA7001C7B73 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AB9EF0E52241EA82001C7B73 /* AddEventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventVC.swift; sourceTree = "<group>"; };
+		AB9EF0E72241F068001C7B73 /* kambaqi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = kambaqi.entitlements; sourceTree = "<group>"; };
 		ABDAE0DC224150D000BFE130 /* kambaqi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kambaqi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABDAE0DF224150D000BFE130 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABDAE0E9224150D100BFE130 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		ABDAE0EC224150D100BFE130 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABDAE0EE224150D100BFE130 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ABDAE0F52241525E00BFE130 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ABDAE0FB224152DF00BFE130 /* EventsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsVC.swift; sourceTree = "<group>"; };
@@ -91,6 +94,7 @@
 		ABDAE0DE224150D000BFE130 /* kambaqi */ = {
 			isa = PBXGroup;
 			children = (
+				AB9EF0E72241F068001C7B73 /* kambaqi.entitlements */,
 				ABDAE0DF224150D000BFE130 /* AppDelegate.swift */,
 				ABDAE111224152EA00BFE130 /* CustomViews.swift */,
 				ABDAE110224152E900BFE130 /* Colors.swift */,
@@ -99,10 +103,10 @@
 				ABDAE0FA224152DF00BFE130 /* Main Controllers */,
 				ABDAE102224152DF00BFE130 /* Cells & Helpers */,
 				ABDAE0E9224150D100BFE130 /* Assets.xcassets */,
-				ABDAE0EB224150D100BFE130 /* LaunchScreen.storyboard */,
 				ABDAE0EE224150D100BFE130 /* Info.plist */,
 				ABDAE0F52241525E00BFE130 /* GoogleService-Info.plist */,
 				ABDAE11A2241539B00BFE130 /* kambaqi.xcdatamodeld */,
+				AB9EF0E32241BEA7001C7B73 /* LaunchScreen.storyboard */,
 			);
 			path = kambaqi;
 			sourceTree = "<group>";
@@ -115,6 +119,7 @@
 				ABDAE0FC224152DF00BFE130 /* SoonVC.swift */,
 				ABDAE0FB224152DF00BFE130 /* EventsVC.swift */,
 				AB9EF0E12241AD53001C7B73 /* MyEventsVC.swift */,
+				AB9EF0E52241EA82001C7B73 /* AddEventVC.swift */,
 				ABDAE100224152DF00BFE130 /* TodayVC.swift */,
 				ABDAE0FF224152DF00BFE130 /* AdsVC.swift */,
 				AB9EF0DF22419304001C7B73 /* SettingVC.swift */,
@@ -184,6 +189,11 @@
 				TargetAttributes = {
 					ABDAE0DB224150D000BFE130 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -210,8 +220,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABDAE0ED224150D100BFE130 /* LaunchScreen.storyboard in Resources */,
 				ABDAE0F82241525E00BFE130 /* GoogleService-Info.plist in Resources */,
+				AB9EF0E42241BEA7001C7B73 /* LaunchScreen.storyboard in Resources */,
 				ABDAE0EA224150D100BFE130 /* Assets.xcassets in Resources */,
 				ABDAE108224152DF00BFE130 /* Main.storyboard in Resources */,
 			);
@@ -304,6 +314,7 @@
 				ABDAE106224152DF00BFE130 /* EventsVC.swift in Sources */,
 				ABDAE109224152DF00BFE130 /* AdsVC.swift in Sources */,
 				ABDAE116224152EA00BFE130 /* Core.swift in Sources */,
+				AB9EF0E62241EA82001C7B73 /* AddEventVC.swift in Sources */,
 				ABDAE107224152DF00BFE130 /* SoonVC.swift in Sources */,
 				ABDAE10B224152DF00BFE130 /* MainVC.swift in Sources */,
 				ABDAE115224152EA00BFE130 /* CustomViews.swift in Sources */,
@@ -314,14 +325,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		ABDAE0EB224150D100BFE130 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ABDAE0EC224150D100BFE130 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		ABDAE0FD224152DF00BFE130 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -454,6 +457,7 @@
 			baseConfigurationReference = 218276F69BB3EE580BD72896 /* Pods-kambaqi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = kambaqi/kambaqi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RPSDHNQWHN;
 				INFOPLIST_FILE = kambaqi/Info.plist;
@@ -462,7 +466,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kambaqistars2.kambaqi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wafi.kambaqi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -474,6 +478,7 @@
 			baseConfigurationReference = EFC29CC6E7EFB2B3139AD624 /* Pods-kambaqi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = kambaqi/kambaqi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RPSDHNQWHN;
 				INFOPLIST_FILE = kambaqi/Info.plist;
@@ -482,7 +487,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kambaqistars2.kambaqi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wafi.kambaqi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
