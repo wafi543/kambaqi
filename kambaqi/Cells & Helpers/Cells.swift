@@ -87,7 +87,7 @@ class MyEventCell: UITableViewCell {
         secondShapeLayer.strokeEnd = 5
         
         // add the animation to your timeLeftShapeLayer
-//        secondShapeLayer.add(strokeIt, forKey: nil)
+        secondShapeLayer.add(strokeIt, forKey: nil)
         // define the future end time by adding the timeLeft to now Date()
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
     }
@@ -97,6 +97,9 @@ class MyEventCell: UITableViewCell {
         if timeLeft > 0 {
             timeLeft = myEvent.date.timeIntervalSinceNow
             SecondLabel.text = timeLeft.seconds
+            MinuteLabel.text = timeLeft.minutes
+            HourLabel.text = timeLeft.hours
+            DayLabel.text = timeLeft.days
         } else {
             SecondLabel.text = "0"
             timer?.invalidate()

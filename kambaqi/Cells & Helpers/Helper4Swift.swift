@@ -675,10 +675,25 @@ extension UIViewController {
 }
 
 extension TimeInterval {
-    var time: String {
-        return String(format:"%02d:%02d", Int(self/60),  Int(ceil(truncatingRemainder(dividingBy: 60))) )
+    var stringFromTimeInterval : String {
+        let time = Int(self)
+        let ms = Int((self.truncatingRemainder(dividingBy: 1)) * 1000)
+        let seconds = time % 60
+        let minutes = (time / 60) % 60
+        let hours = (time / 3600)
+        return String(format: "%0.2d:%0.2d:%0.2d.%0.3d",hours,minutes,seconds,ms)
     }
+    
     var seconds: String {
-        return String(format:"%02d", Int(ceil(truncatingRemainder(dividingBy: 60))))
+        return String(format:"%02d", Int(self) % 60)
+    }
+    var minutes: String {
+        return String(format:"%02d", (Int(self) / 60) % 60)
+    }
+    var hours: String {
+        return String(format:"%02d", (Int(self) / 3600) % 24)
+    }
+    var days: String {
+        return String(format:"%02d", (Int(self) / 3600) / 24)
     }
 }
