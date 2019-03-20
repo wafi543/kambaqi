@@ -79,6 +79,30 @@ class MyEventsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func delete(sender : UIButton) {
+        func deleteEvent(withID: Int, completion: (() -> ())?) {
+            let delegate = UIApplication.shared.delegate as! AppDelegate
+            let context = delegate.persistentContainer.viewContext
+            
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MyEvents")
+            fetchRequest.predicate = NSPredicate.init(format: "id==\(withID)")
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+            do {
+                try context.execute(deleteRequest)
+                try context.save()
+                completion?()
+            } catch {
+                print ("There was an error")
+            }
+        } 
         
+        self.showTwoActions(title: "تأكيد الحذف", subtitle: "سيتم حذف عنصر، هل أنت متأكد؟", actionTitle: "تأكيد", cancelTitle: "إلغاء", actionStyle: .destructive, cancelStyle: .default, cancelHandler: nil) { (_) in
+            // delete object
+            let myEvent = self.myEvents[sender.tag]
+            deleteEvent(withID: myEvent.id, completion: {
+                self.getDataOffline()
+                Helper.showBasicAlert(title: "تم ✅", message: "تم حذف المناسبة بنجاح", buttonTitle: "موافق", isBlue: true, vc: self, completion: nil)
+            })
+            
+        }
     }
 }

@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
     
     @IBOutlet var EventName: UITextField!
     @IBOutlet var CalendarType: UISegmentedControl!
@@ -27,7 +27,7 @@ class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     
     let datePicker = UIDatePicker()
     
-    let formatterStr = "yyyy/MM/dd , h:mm a"
+    let formatterStr = "h:mm a , yyyy/MM/dd"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +36,7 @@ class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         datePicker.datePickerMode = .dateAndTime; datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
         EventName.setToolBar(""); EventDate.setToolBar("")
         EventDate.inputView = datePicker
+        EventDate.delegate = self
         
         if vcType == .EditVC {
             EventName.text = myEvent.eventName
@@ -49,7 +50,8 @@ class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     }
     
     @objc func dateChanged () {
-        EventDate.text = datePicker.date.toString(formatterStr, "en")
+        var identifier = "en"; if CalendarType.selectedSegmentIndex == 0 {identifier = "en_SA"}
+        EventDate.text = datePicker.date.toString(formatterStr, identifier)
     }
     
 //
@@ -87,6 +89,22 @@ class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             StatusSegment.tintColor = colors.enabled
         }else {
             StatusSegment.tintColor = colors.disabled
+        }
+    }
+    
+    @IBAction func calendarChanged(_ sender: Any) {
+        selectedCalendar = CalendarType.selectedSegmentIndex
+        EventDate.text = ""
+        configureDatePicker()
+    }
+    
+    func configureDatePicker () {
+        if CalendarType.selectedSegmentIndex == 0 {
+            datePicker.locale = Locale(identifier: "ar")
+            datePicker.calendar = Calendar(identifier: .islamicUmmAlQura)
+        }else {
+            datePicker.locale = Locale(identifier: "en")
+            datePicker.calendar = Calendar(identifier: .gregorian)
         }
     }
     
@@ -128,4 +146,7 @@ class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         colorsCollectionView.reloadData()
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        configureDatePicker()
+    }
 }

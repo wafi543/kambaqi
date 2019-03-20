@@ -663,6 +663,9 @@
                                     <segment title="هجري"/>
                                     <segment title="ميلادي"/>
                                 </segments>
+                                <connections>
+                                    <action selector="calendarChanged:" destination="MzP-js-rLf" eventType="valueChanged" id="Fb7-eB-PQk"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تاريخ المناسبة" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QR6-Fu-lU5">
                                 <rect key="frame" x="250" y="221.5" width="105" height="24"/>
@@ -670,7 +673,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4fK-SU-Nh7">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4fK-SU-Nh7">
                                 <rect key="frame" x="16" y="218.5" width="214" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="cUr-GI-rek"/>
