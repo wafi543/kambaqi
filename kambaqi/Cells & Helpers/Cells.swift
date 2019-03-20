@@ -30,3 +30,14 @@ class SettingCell: UITableViewCell {
     @IBOutlet var EventName: CustomLabel!
     
 }
+
+class MyEventCell: UITableViewCell {
+    @IBOutlet var edit: UIButton!
+    @IBOutlet var delete: UIButton!
+    @IBOutlet var Name: UILabel!
+    @IBOutlet var DayView: UIView!
+    @IBOutlet var HourView: UIView!
+    @IBOutlet var MinuteView: UIView!
+    @IBOutlet var SecondView: UIView!
+    
+}

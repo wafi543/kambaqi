@@ -636,20 +636,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" contentInsetAdjustmentBehavior="scrollableAxes" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="140" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Sw-0k-rNm">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" contentInsetAdjustmentBehavior="scrollableAxes" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="160" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Sw-0k-rNm">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="scrollIndicatorInsets" minX="5" minY="5" maxX="5" maxY="10"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingCell" id="AxG-yI-j1d" customClass="SettingCell" customModule="kambaqi" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="140"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyEventCell" id="AxG-yI-j1d" customClass="MyEventCell" customModule="kambaqi" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AxG-yI-j1d" id="3Nd-LV-Ct3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wZT-Y7-YwP" customClass="GradientView" customModule="kambaqi" customModuleProvider="target">
-                                                    <rect key="frame" x="5" y="5" width="365" height="130"/>
+                                                    <rect key="frame" x="5" y="5" width="365" height="150"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idi-pt-Anl">
                                                             <rect key="frame" x="335" y="8" width="22" height="22"/>
@@ -673,15 +673,48 @@
                                                             <color key="textColor" red="0.1058823529" green="0.4431372549" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="IFE-Ea-Pc3">
+                                                            <rect key="frame" x="10" y="46" width="345" height="75"/>
+                                                            <subviews>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g9F-yR-tja">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                                                    <color key="backgroundColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TfD-Vy-KoG">
+                                                                    <rect key="frame" x="90" y="0.0" width="75" height="75"/>
+                                                                    <color key="backgroundColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uGu-bM-4Gm">
+                                                                    <rect key="frame" x="180" y="0.0" width="75" height="75"/>
+                                                                    <color key="backgroundColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Stv-oC-hZC">
+                                                                    <rect key="frame" x="270" y="0.0" width="75" height="75"/>
+                                                                    <color key="backgroundColor" red="0.30196078431372547" green="0.30196078431372547" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="75" id="drL-Os-KPK"/>
+                                                                    </constraints>
+                                                                </view>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="g9F-yR-tja" firstAttribute="width" secondItem="TfD-Vy-KoG" secondAttribute="width" id="7vP-dC-bYT"/>
+                                                                <constraint firstItem="uGu-bM-4Gm" firstAttribute="width" secondItem="Stv-oC-hZC" secondAttribute="width" id="VEj-I3-6i9"/>
+                                                                <constraint firstAttribute="height" constant="75" id="b8P-CX-Gef"/>
+                                                                <constraint firstItem="TfD-Vy-KoG" firstAttribute="width" secondItem="uGu-bM-4Gm" secondAttribute="width" id="t49-DQ-Sbk"/>
+                                                            </constraints>
+                                                        </stackView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
+                                                        <constraint firstItem="IFE-Ea-Pc3" firstAttribute="leading" secondItem="wZT-Y7-YwP" secondAttribute="leading" constant="10" id="2HJ-o2-fhq"/>
                                                         <constraint firstItem="qVN-2j-IQH" firstAttribute="leading" secondItem="wZT-Y7-YwP" secondAttribute="leading" constant="8" id="4I1-gu-rjU"/>
+                                                        <constraint firstItem="IFE-Ea-Pc3" firstAttribute="top" secondItem="BZi-2G-psI" secondAttribute="bottom" constant="8" id="51k-hY-YEp"/>
                                                         <constraint firstItem="idi-pt-Anl" firstAttribute="leading" secondItem="BZi-2G-psI" secondAttribute="trailing" constant="8" id="I2K-OI-Ipz"/>
                                                         <constraint firstAttribute="trailing" secondItem="idi-pt-Anl" secondAttribute="trailing" constant="8" id="LVh-3K-dPb"/>
                                                         <constraint firstItem="qVN-2j-IQH" firstAttribute="top" secondItem="wZT-Y7-YwP" secondAttribute="top" constant="8" id="WJj-uw-hMF"/>
                                                         <constraint firstItem="idi-pt-Anl" firstAttribute="top" secondItem="wZT-Y7-YwP" secondAttribute="top" constant="8" id="X6a-Vt-g6P"/>
                                                         <constraint firstItem="BZi-2G-psI" firstAttribute="leading" secondItem="qVN-2j-IQH" secondAttribute="trailing" constant="8" id="ZAt-mf-9PF"/>
+                                                        <constraint firstAttribute="trailing" secondItem="IFE-Ea-Pc3" secondAttribute="trailing" constant="10" id="kDd-Pz-OID"/>
                                                         <constraint firstItem="BZi-2G-psI" firstAttribute="top" secondItem="wZT-Y7-YwP" secondAttribute="top" constant="8" id="y9C-Lp-UcT"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
@@ -690,7 +723,7 @@
                                                             <real key="value" value="0.5"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                            <real key="value" value="2"/>
+                                                            <real key="value" value="1"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
@@ -702,6 +735,15 @@
                                                 <constraint firstAttribute="bottom" secondItem="wZT-Y7-YwP" secondAttribute="bottom" constant="5" id="rfn-FM-yum"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="DayView" destination="Stv-oC-hZC" id="qOW-N5-0ra"/>
+                                            <outlet property="HourView" destination="uGu-bM-4Gm" id="33m-EV-Aob"/>
+                                            <outlet property="MinuteView" destination="TfD-Vy-KoG" id="3OR-1i-RLL"/>
+                                            <outlet property="Name" destination="BZi-2G-psI" id="4Hx-5s-aiz"/>
+                                            <outlet property="SecondView" destination="g9F-yR-tja" id="ufW-Lx-Xxn"/>
+                                            <outlet property="delete" destination="qVN-2j-IQH" id="6Km-rq-ym1"/>
+                                            <outlet property="edit" destination="idi-pt-Anl" id="c51-nz-JnB"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
