@@ -40,6 +40,8 @@ class Core {
             return mainStoryBoard.instantiateViewController(withIdentifier: "SoonVC")
         case names.mainTitles[1]:
             return mainStoryBoard.instantiateViewController(withIdentifier: "EventsVC")
+        case names.mainTitles[2]:
+            return mainStoryBoard.instantiateViewController(withIdentifier: "MyEventsVC")
         case names.mainTitles[3]:
             return mainStoryBoard.instantiateViewController(withIdentifier: "TodayVC")
         case names.mainTitles[4]:
