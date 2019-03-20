@@ -92,7 +92,7 @@ class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         do {
             try context.save()
             Helper.showBasicAlert(title: "تم ✅", message: "تم حفظ المناسبة بنجاح", buttonTitle: "موافق", isBlue: true, vc: self) {
-                self.dismiss(animated: true, completion: nil)
+                self.navigationController?.popViewController(animated: true)
             }
         }
         catch {
