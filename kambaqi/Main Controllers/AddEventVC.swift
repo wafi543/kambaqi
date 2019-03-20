@@ -26,6 +26,8 @@ class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     var status = true
     
     let datePicker = UIDatePicker()
+    
+    let formatterStr = "yyyy/MM/dd , h:mm a"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +36,20 @@ class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         datePicker.datePickerMode = .dateAndTime; datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
         EventName.setToolBar(""); EventDate.setToolBar("")
         EventDate.inputView = datePicker
+        
+        if vcType == .EditVC {
+            EventName.text = myEvent.eventName
+            EventDate.text = myEvent.date.toString(formatterStr, "en")
+            selectedColor = myEvent.color
+            colorsCollectionView.reloadData()
+            CalendarType.selectedSegmentIndex = myEvent.calendarType
+            if myEvent.status {StatusSegment.selectedSegmentIndex = 0}
+            else {StatusSegment.selectedSegmentIndex = 1}
+        }
     }
     
     @objc func dateChanged () {
-        EventDate.text = datePicker.date.toString("yyyy/MM/dd , h:mm a", "en")
+        EventDate.text = datePicker.date.toString(formatterStr, "en")
     }
     
 //

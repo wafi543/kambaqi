@@ -46,13 +46,13 @@ class MyEventCell: UITableViewCell {
     
     var timer : Timer?
     var myEvent : MyEvent!
-    
     var lineWidth : CGFloat = 3
     var radiusShape : CGFloat = 40
     var timeLeft: TimeInterval = 60
-    let strokeIt = CABasicAnimation(keyPath: "strokeEnd")
-    
     let secondShapeLayer = CAShapeLayer()
+    let minutesShapeLayer = CAShapeLayer()
+    let hoursShapeLayer = CAShapeLayer()
+    let daysShapeLayer = CAShapeLayer()
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -60,38 +60,58 @@ class MyEventCell: UITableViewCell {
     }
     
     func configureShapesAndTimer () {
-        strokeIt.fromValue = 0
-        strokeIt.toValue = 1
-        strokeIt.duration = timeLeft
-        
-        let center = SecondView.center
         // create my track
-        let trackLayer = CAShapeLayer()
-        let circularPath = UIBezierPath(arcCenter: center, radius: self.radiusShape, startAngle: -CGFloat.pi / 2, endAngle: 2 * CGFloat.pi, clockwise: true)
-        secondShapeLayer.path = circularPath.cgPath
-        secondShapeLayer.strokeColor = colors.secondColor2.cgColor
-        secondShapeLayer.lineWidth = self.lineWidth
-        secondShapeLayer.fillColor = UIColor.clear.cgColor
-        secondShapeLayer.lineCap = CAShapeLayerLineCap.round
-        SecondView.layer.addSublayer(trackLayer)
-        // create progress
-        secondShapeLayer.path = circularPath.cgPath
-        secondShapeLayer.strokeColor = colors.secondColor1.cgColor
-        secondShapeLayer.lineWidth = self.lineWidth
-        secondShapeLayer.fillColor = UIColor.clear.cgColor
-        secondShapeLayer.lineCap = CAShapeLayerLineCap.round
+        let secondsPath = UIBezierPath(arcCenter: SecondView.center, radius: self.radiusShape, startAngle: -CGFloat.pi / 2, endAngle: 2 * CGFloat.pi, clockwise: true)
+        let minutesPath = UIBezierPath(arcCenter: MinuteView.center, radius: self.radiusShape, startAngle: -CGFloat.pi / 2, endAngle: 2 * CGFloat.pi, clockwise: true)
+        let hoursPath = UIBezierPath(arcCenter: HourView.center, radius: self.radiusShape, startAngle: -CGFloat.pi / 2, endAngle: 2 * CGFloat.pi, clockwise: true)
+        let daysPath = UIBezierPath(arcCenter: DayView.center, radius: self.radiusShape, startAngle: -CGFloat.pi / 2, endAngle: 2 * CGFloat.pi, clockwise: true)
         
+        func generateTrackLayer (_ path : UIBezierPath, _ strokeColor : UIColor, _ isDay : Bool) -> CAShapeLayer {
+            let trackLayer = CAShapeLayer()
+            trackLayer.path = path.cgPath
+            trackLayer.strokeColor = strokeColor.cgColor
+            trackLayer.lineWidth = self.lineWidth
+            trackLayer.fillColor = UIColor.clear.cgColor
+            trackLayer.lineCap = CAShapeLayerLineCap.round
+            if isDay == false {trackLayer.opacity = 0.1}
+            return trackLayer
+        }
+        SecondView.layer.addSublayer(generateTrackLayer(secondsPath, colors.secondColor, false))
+        MinuteView.layer.addSublayer(generateTrackLayer(minutesPath, colors.minuteColor, false))
+        HourView.layer.addSublayer(generateTrackLayer(hoursPath, colors.hourColor, false))
+        DayView.layer.addSublayer(generateTrackLayer(daysPath, colors.dayColor, true))
+        
+        // create seconds progress
+        secondShapeLayer.path = secondsPath.cgPath
+        secondShapeLayer.strokeColor = colors.secondColor.cgColor
+        secondShapeLayer.lineWidth = self.lineWidth
+        secondShapeLayer.fillColor = UIColor.clear.cgColor
+        secondShapeLayer.lineCap = CAShapeLayerLineCap.round
+        secondShapeLayer.strokeStart = 0
         SecondView.layer.addSublayer(secondShapeLayer)
         
-        secondShapeLayer.strokeStart = 0
-        secondShapeLayer.strokeEnd = 5
+        // create minutes progress
+        minutesShapeLayer.path = minutesPath.cgPath
+        minutesShapeLayer.strokeColor = colors.minuteColor.cgColor
+        minutesShapeLayer.lineWidth = self.lineWidth
+        minutesShapeLayer.fillColor = UIColor.clear.cgColor
+        minutesShapeLayer.lineCap = CAShapeLayerLineCap.round
+        minutesShapeLayer.strokeStart = 0
+        MinuteView.layer.addSublayer(minutesShapeLayer)
         
-        // add the animation to your timeLeftShapeLayer
-        secondShapeLayer.add(strokeIt, forKey: nil)
+        // create hours progress
+        hoursShapeLayer.path = hoursPath.cgPath
+        hoursShapeLayer.strokeColor = colors.hourColor.cgColor
+        hoursShapeLayer.lineWidth = self.lineWidth
+        hoursShapeLayer.fillColor = UIColor.clear.cgColor
+        hoursShapeLayer.lineCap = CAShapeLayerLineCap.round
+        hoursShapeLayer.strokeStart = 0
+        HourView.layer.addSublayer(hoursShapeLayer)
+        
+        updateTime()
         // define the future end time by adding the timeLeft to now Date()
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
     }
-    
     
     @objc func updateTime() {
         if timeLeft > 0 {
@@ -100,6 +120,22 @@ class MyEventCell: UITableViewCell {
             MinuteLabel.text = timeLeft.minutes
             HourLabel.text = timeLeft.hours
             DayLabel.text = timeLeft.days
+            
+            secondShapeLayer.strokeEnd = CGFloat(timeLeft.seconds.floatValue / 74)
+            minutesShapeLayer.strokeEnd = CGFloat(timeLeft.minutes.floatValue / 74)
+            hoursShapeLayer.strokeEnd = CGFloat(timeLeft.hours.floatValue / 30)
+
+            /*
+            let strokeIt = CABasicAnimation(keyPath: "strokeEnd")
+            let second = timeLeft.seconds.doubleValue / 60
+            strokeIt.fromValue = 0
+            strokeIt.toValue = second
+            strokeIt.duration = 0.1
+            strokeIt.fillMode = .forwards
+            strokeIt.isRemovedOnCompletion = false
+            // add the animation to your timeLeftShapeLayer
+            secondShapeLayer.add(strokeIt, forKey: nil)
+             */
         } else {
             SecondLabel.text = "0"
             timer?.invalidate()

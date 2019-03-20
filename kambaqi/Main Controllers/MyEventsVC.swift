@@ -70,7 +70,12 @@ class MyEventsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func edit(sender : UIButton) {
-        
+        let myEvent = myEvents[sender.tag]
+        let vc = mainStoryBoard.instantiateViewController(withIdentifier: "AddEventVC") as! AddEventVC
+        vc.lastIndex = myEvents.count
+        vc.vcType = .EditVC
+        vc.myEvent = myEvent
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func delete(sender : UIButton) {
