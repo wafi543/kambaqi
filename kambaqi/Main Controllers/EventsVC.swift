@@ -89,7 +89,7 @@ class EventsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 
                 DispatchQueue.main.async {
                     self.mainTableView.reloadData(); ARSLineProgress.hide()
-                    self.showToast("تم تحديث قائمة الاحداث")
+//                    self.showToast("تم تحديث قائمة الاحداث")
                 }
             }
         })

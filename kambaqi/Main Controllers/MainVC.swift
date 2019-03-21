@@ -9,12 +9,33 @@
 import UIKit
 
 class MainVC: UIViewController , UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    override var preferredStatusBarStyle: UIStatusBarStyle {return .lightContent}
     @IBOutlet var mainCollectionView: UICollectionView!
+    @IBOutlet var containerView: UIView!
+    
+    let shadowView : UIButton = {let tmp = UIButton();tmp.setTitle("", for: .normal); tmp.backgroundColor = UIColor.black; tmp.alpha = 0.3; return tmp}()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
+        containerView.frame.origin = CGPoint(x: view.frame.width, y: 0)
+    }
+    
+    @IBAction func showMenu(_ sender: Any) {
+        shadowView.frame = view.frame; view.addSubview(shadowView)
+        shadowView.addTarget(self, action: #selector(removeShadow), for: .touchUpInside)
+        view.bringSubviewToFront(containerView)
+        UIView.animate(withDuration: 0.2, animations: {
+            self.containerView.frame.origin = CGPoint(x: 80, y: 0)
+        })
+    }
+    
+    @objc func removeShadow () {
+        shadowView.removeFromSuperview()
+        UIView.animate(withDuration: 0.2, animations: {
+            self.containerView.frame.origin = CGPoint(x: self.view.frame.width, y: 0)
+        })
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -40,4 +61,14 @@ class MainVC: UIViewController , UICollectionViewDelegate, UICollectionViewDataS
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+
 }

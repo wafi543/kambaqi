@@ -43,6 +43,7 @@ class MyEventCell: UITableViewCell {
     @IBOutlet var HourLabel: UILabel!
     @IBOutlet var MinuteLabel: UILabel!
     @IBOutlet var SecondLabel: UILabel!
+    @IBOutlet var Message: UILabel!
     
     var timer : Timer?
     var myEvent : MyEvent!
@@ -115,6 +116,7 @@ class MyEventCell: UITableViewCell {
     
     @objc func updateTime() {
         if timeLeft > 0 {
+            Message.isHidden = true
             timeLeft = myEvent.date.timeIntervalSinceNow
             SecondLabel.text = timeLeft.seconds
             MinuteLabel.text = timeLeft.minutes
@@ -138,6 +140,10 @@ class MyEventCell: UITableViewCell {
              */
         } else {
             SecondLabel.text = "0"
+            MinuteLabel.text = "0"
+            HourLabel.text = "0"
+            DayLabel.text = "0"
+            Message.isHidden = false
             timer?.invalidate()
         }
     }
@@ -146,4 +152,10 @@ class MyEventCell: UITableViewCell {
 
 class ColorCell: UICollectionViewCell {
     @IBOutlet var selectedView: GradientView!
+}
+
+class MenuCell: UITableViewCell {
+    @IBOutlet var Icon: UIImageView!
+    @IBOutlet var Title: UILabel!
+    
 }

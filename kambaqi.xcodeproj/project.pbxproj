@@ -12,6 +12,8 @@
 		AB9EF0E22241AD53001C7B73 /* MyEventsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9EF0E12241AD53001C7B73 /* MyEventsVC.swift */; };
 		AB9EF0E42241BEA7001C7B73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB9EF0E32241BEA7001C7B73 /* LaunchScreen.storyboard */; };
 		AB9EF0E62241EA82001C7B73 /* AddEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9EF0E52241EA82001C7B73 /* AddEventVC.swift */; };
+		ABAE227B2243196C0041746C /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAE227A2243196C0041746C /* MenuVC.swift */; };
+		ABAE227D2243236D0041746C /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABAE227C2243236D0041746C /* MenuCell.xib */; };
 		ABDAE0E0224150D000BFE130 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDAE0DF224150D000BFE130 /* AppDelegate.swift */; };
 		ABDAE0EA224150D100BFE130 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABDAE0E9224150D100BFE130 /* Assets.xcassets */; };
 		ABDAE0F82241525E00BFE130 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABDAE0F52241525E00BFE130 /* GoogleService-Info.plist */; };
@@ -39,6 +41,8 @@
 		AB9EF0E32241BEA7001C7B73 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB9EF0E52241EA82001C7B73 /* AddEventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventVC.swift; sourceTree = "<group>"; };
 		AB9EF0E72241F068001C7B73 /* kambaqi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = kambaqi.entitlements; sourceTree = "<group>"; };
+		ABAE227A2243196C0041746C /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
+		ABAE227C2243236D0041746C /* MenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
 		ABDAE0DC224150D000BFE130 /* kambaqi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kambaqi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABDAE0DF224150D000BFE130 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABDAE0E9224150D100BFE130 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -116,6 +120,7 @@
 			children = (
 				ABDAE0FD224152DF00BFE130 /* Main.storyboard */,
 				ABDAE101224152DF00BFE130 /* MainVC.swift */,
+				ABAE227A2243196C0041746C /* MenuVC.swift */,
 				ABDAE0FC224152DF00BFE130 /* SoonVC.swift */,
 				ABDAE0FB224152DF00BFE130 /* EventsVC.swift */,
 				AB9EF0E12241AD53001C7B73 /* MyEventsVC.swift */,
@@ -132,6 +137,7 @@
 			children = (
 				ABDAE104224152DF00BFE130 /* Helper4Swift.swift */,
 				ABDAE103224152DF00BFE130 /* Cells.swift */,
+				ABAE227C2243236D0041746C /* MenuCell.xib */,
 				ABDAE105224152DF00BFE130 /* Structs & Models.swift */,
 			);
 			path = "Cells & Helpers";
@@ -222,6 +228,7 @@
 			files = (
 				ABDAE0F82241525E00BFE130 /* GoogleService-Info.plist in Resources */,
 				AB9EF0E42241BEA7001C7B73 /* LaunchScreen.storyboard in Resources */,
+				ABAE227D2243236D0041746C /* MenuCell.xib in Resources */,
 				ABDAE0EA224150D100BFE130 /* Assets.xcassets in Resources */,
 				ABDAE108224152DF00BFE130 /* Main.storyboard in Resources */,
 			);
@@ -307,6 +314,7 @@
 				ABDAE10E224152DF00BFE130 /* Structs & Models.swift in Sources */,
 				ABDAE10D224152DF00BFE130 /* Helper4Swift.swift in Sources */,
 				ABDAE10C224152DF00BFE130 /* Cells.swift in Sources */,
+				ABAE227B2243196C0041746C /* MenuVC.swift in Sources */,
 				ABDAE113224152EA00BFE130 /* Names.swift in Sources */,
 				ABDAE11C2241539B00BFE130 /* kambaqi.xcdatamodeld in Sources */,
 				AB9EF0E022419304001C7B73 /* SettingVC.swift in Sources */,

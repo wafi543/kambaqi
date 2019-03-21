@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import ARSLineProgress
+import Firebase
 import Social
 
 class SoonVC: UIViewController {
@@ -21,11 +22,11 @@ class SoonVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ARSLineProgress.show()
         getDataOffline()
     }
     
     func getDataOffline() {
-        ARSLineProgress.show()
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Events")
         request.returnsObjectsAsFaults = false
@@ -44,26 +45,82 @@ class SoonVC: UIViewController {
             }
             
             DispatchQueue.main.async {
-                var sortedEvents = self.events.sorted(by: { $0.date < $1.date })
-                var remainingEvents : [Event] = []
-                
-                if sortedEvents.count > 1 {
-                    for i in 0...sortedEvents.count-1 {
-                        if sortedEvents[i].date > Date() {
-                            remainingEvents.append(sortedEvents[i])
-                        }
-                    }
-                }
-                
-                let event = remainingEvents[0]
-                self.nextEvent = event
-                self.EventName.text = event.eventName
-                self.Day.text = "\(core.remainingDays(event.date))"
-                self.setMessage(event)
-                ARSLineProgress.hide()
+                self.setEvent()
             }
         } catch {print("Failed")}
     }
+    
+    func setEvent () {
+        var sortedEvents = self.events.sorted(by: { $0.date < $1.date })
+        var remainingEvents : [Event] = []
+        
+        if sortedEvents.count > 1 {
+            for i in 0...sortedEvents.count-1 {
+                if sortedEvents[i].date > Date() {
+                    remainingEvents.append(sortedEvents[i])
+                }
+            }
+        }
+        
+        
+        if remainingEvents.count > 0 {
+            ARSLineProgress.hide()
+            let event = remainingEvents[0]
+            self.nextEvent = event
+            self.EventName.text = event.eventName
+            self.Day.text = "\(core.remainingDays(event.date))"
+            self.setMessage(event)
+        }else {
+//            self.showToast("خطأ، اذا تكرر الخطأ تواصل مع الدعم الفني . SoonVC#\(#line)")
+            self.getData()
+        }
+    }
+    
+    func getData () {
+        dbEvents.observe(.value, with: { (snapshot) in
+            self.events.removeAll()
+            core.deleteEntity("Events")
+            for snp in snapshot.children {
+                guard let document = snp as? DataSnapshot else {
+                    print("Something wrong with Firebase DataSnapshot")
+                    return
+                }
+                let snapValue = document.value as? NSDictionary
+                let id = document.key
+                let calendarType = snapValue?.value(forKey: "calendarType") as? Int ?? 0
+                let eventInterval = snapValue?.value(forKey: "eventInterval") as? Int ?? 0
+                let eventName = snapValue?.value(forKey: "eventName") as? String ?? ""
+                let day = snapValue?.value(forKey: "day") as? Int ?? 0
+                let month = snapValue?.value(forKey: "month") as? Int ?? 0
+                let year = snapValue?.value(forKey: "year") as? Int ?? 0
+                
+                guard let date = core.generateDate(calendarType, day, month, year) else {return}
+                let event = Event.init(id: id, calendarType: calendarType, eventInterval: eventInterval, eventName: eventName, date: date)
+                
+                self.saveToCoreData(event)
+                
+                let isEventDisabled = defauls.bool(forKey: "\(event.id)-switch")
+                if isEventDisabled == false {self.events.append(event)}
+            }
+            
+            DispatchQueue.main.async {self.setEvent(); ARSLineProgress.hide()}
+        })
+    }
+    
+    func saveToCoreData (_ event : Event) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Events", in: context)
+        let newObject = NSManagedObject(entity: entity!, insertInto: context)
+        
+        newObject.setValue(event.id, forKey: "id")
+        newObject.setValue(event.calendarType, forKey: "calendarType")
+        newObject.setValue(event.eventInterval, forKey: "eventInterval")
+        newObject.setValue(event.eventName, forKey: "eventName")
+        newObject.setValue(event.date, forKey: "date")
+        print(newObject)
+        do {try context.save()} catch {print("Error. vc: \(self.description ) Line: \(#line)")}
+    }
+    
     
     func setMessage (_ event : Event) {
         var eventInterveal : String = ""

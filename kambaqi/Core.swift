@@ -29,9 +29,9 @@ class Core {
     let AppName = "kambaqi"
     let DeveloperEmail = "wafi543@outlook.sa"
     let DeveloperPhone = "+966570634459"
+    let AppURL = "https://itunes.apple.com/app/id1447849679"
     let DeviceModel = UIDevice.current.model
     let SystemVersion = UIDevice.current.systemVersion
-    
     let myFormatter : DateFormatter = {let formatter = DateFormatter(); formatter.dateFormat = "yyyy/MM/dd"; return formatter} ()
     
     func mainVCs (_ title : String) -> UIViewController? {

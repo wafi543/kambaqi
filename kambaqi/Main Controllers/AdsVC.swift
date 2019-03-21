@@ -76,7 +76,7 @@ class AdsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 
                 DispatchQueue.main.async {
                     self.mainTableView.reloadData(); ARSLineProgress.hide()
-                    self.showToast("تم تحديث القائمة")
+//                    self.showToast("تم تحديث القائمة")
                 }
             }
         })
