@@ -642,7 +642,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fav-px-unl">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fav-px-unl">
                                 <rect key="frame" x="16" y="87.5" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="oMk-Me-AW4"/>
@@ -854,6 +854,7 @@
                         <outlet property="EventName" destination="fav-px-unl" id="jP5-BP-cDL"/>
                         <outlet property="EventTime" destination="85d-yL-iGK" id="IXQ-Og-Qev"/>
                         <outlet property="StatusSegment" destination="C1B-kI-LJ6" id="sPH-ig-4zY"/>
+                        <outlet property="addButton" destination="NPL-b2-RYz" id="J9V-MU-zdM"/>
                         <outlet property="colorsCollectionView" destination="wZc-Lj-t9M" id="LvO-hG-9YH"/>
                     </connections>
                 </viewController>

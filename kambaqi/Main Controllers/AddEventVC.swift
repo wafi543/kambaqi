@@ -17,6 +17,7 @@ class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     @IBOutlet var EventTime: UITextField!
     @IBOutlet var colorsCollectionView: UICollectionView!
     @IBOutlet var StatusSegment: UISegmentedControl!
+    @IBOutlet var addButton: CustomButton!
     
     var vcType : VCType = .Normal
     var myEvent : MyEvent!
@@ -26,7 +27,6 @@ class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     var status = true
     
     let datePicker = UIDatePicker()
-    
     let formatterStr = "h:mm a , yyyy/MM/dd"
 
     override func viewDidLoad() {
@@ -39,13 +39,17 @@ class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         EventDate.delegate = self
         
         if vcType == .EditVC {
+            var identifier = "en"; if myEvent.calendarType == 0 {identifier = "en_SA"}
+            if myEvent.status {StatusSegment.tintColor = colors.enabled} else {StatusSegment.tintColor = colors.disabled}
             EventName.text = myEvent.eventName
-            EventDate.text = myEvent.date.toString(formatterStr, "en")
+            EventDate.text = myEvent.date.toString(formatterStr, identifier)
             selectedColor = myEvent.color
             colorsCollectionView.reloadData()
             CalendarType.selectedSegmentIndex = myEvent.calendarType
             if myEvent.status {StatusSegment.selectedSegmentIndex = 0}
             else {StatusSegment.selectedSegmentIndex = 1}
+            addButton.setTitle("تعديل", for: .normal)
+            datePicker.date = myEvent.date
         }
     }
     
@@ -69,7 +73,6 @@ class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                     if datePicker.date > Date() {
                         let minute = datePicker.date.toString("mm", "en").intValue
                         let hour = datePicker.date.toString("hh", "en").intValue
-                        print("\(hour):\(minute)")
                         let date = Calendar.current.date(bySettingHour: hour, minute: minute, second: 00, of: datePicker.date)!
                         myEvent = MyEvent.init(id: lastIndex, eventName: EventName.text ?? "", calendarType: CalendarType.selectedSegmentIndex, date: date, color: selectedColor, status: status)
                         saveToCoreData()
@@ -80,22 +83,67 @@ class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             }else {
                 Helper.showBasicAlert(title: "Error ❌", message: "هناك خطأ ماً، اذا تكرر الخطأ تواصل مع الدعم الفني", buttonTitle: "موافق", isBlue: false, vc: self, completion: nil)
             }
+        }else {
+            func editEvent(myEvent : MyEvent, completion: (() -> ())?) {
+                let delegate = UIApplication.shared.delegate as! AppDelegate
+                let context = delegate.persistentContainer.viewContext
+                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MyEvents")
+                fetchRequest.predicate = NSPredicate.init(format: "id==\(myEvent.id)")
+                
+                do {
+                    let results = try context.fetch(fetchRequest) as? [NSManagedObject]
+                    if results?.count != 0 { // Atleast one was returned
+                        // In my case, I only updated the first item in results
+                        results?[0].setValue(myEvent.id, forKey: "id")
+                        results?[0].setValue(myEvent.calendarType, forKey: "calendarType")
+                        results?[0].setValue(myEvent.eventName, forKey: "eventName")
+                        results?[0].setValue(myEvent.date, forKey: "date")
+                        results?[0].setValue(myEvent.color, forKey: "color")
+                        results?[0].setValue(myEvent.status, forKey: "status")
+                        do {
+                            try context.save()
+                            completion?()
+                        } catch {
+                            print ("There was an error")
+                        }
+                    }else {
+                        print("error fetch object")
+                    }
+                } catch {
+                    print ("There was an error")
+                }
+            }
+            
+            if EventName.text == "" || EventDate.text == "" {
+                Helper.showBasicAlert(title: "Required ‼️", message: "هناك بيانات مفقودة", buttonTitle: "موافق", isBlue: false, vc: self, completion: nil)
+            }else {
+                if datePicker.date > Date() {
+                    let minute = datePicker.date.toString("mm", "en").intValue
+                    let hour = datePicker.date.toString("hh", "en").intValue
+                    let date = Calendar.current.date(bySettingHour: hour, minute: minute, second: 00, of: datePicker.date)!
+                    let newEvent = MyEvent.init(id: self.myEvent.id, eventName: EventName.text ?? "", calendarType: CalendarType.selectedSegmentIndex, date: date, color: selectedColor, status: status)
+                    editEvent(myEvent: newEvent) {
+                        Helper.showBasicAlert(title: "تم ✅", message: "تم تعديل البيانات بنجاح", buttonTitle: "موافق", isBlue: true, vc: self, completion: nil)
+                    }
+                }else {
+                    Helper.showBasicAlert(title: "تنبيه ⚠️", message: "زمن المناسبة قد مضى", buttonTitle: "موافق", isBlue: false, vc: self, completion: nil)
+                }
+            }
         }
     }
     
     @IBAction func statusChanged(_ sender: Any) {
         status = (StatusSegment.selectedSegmentIndex == 0)
-        if status {
-            StatusSegment.tintColor = colors.enabled
-        }else {
-            StatusSegment.tintColor = colors.disabled
-        }
+        if status {StatusSegment.tintColor = colors.enabled} else {StatusSegment.tintColor = colors.disabled}
     }
     
     @IBAction func calendarChanged(_ sender: Any) {
         selectedCalendar = CalendarType.selectedSegmentIndex
-        EventDate.text = ""
         configureDatePicker()
+        if EventDate.text != "" {
+            var identifier = "en"; if CalendarType.selectedSegmentIndex == 0 {identifier = "en_SA"}
+            EventDate.text = datePicker.date.toString(formatterStr, identifier)
+        }
     }
     
     func configureDatePicker () {
