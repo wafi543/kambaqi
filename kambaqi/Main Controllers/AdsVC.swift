@@ -91,5 +91,7 @@ class AdsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {return view.bounds.width}
+    
     override func viewWillDisappear(_ animated: Bool) {ARSLineProgress.hide()}
 }
