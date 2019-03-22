@@ -28,7 +28,7 @@ class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     var alertStatus = true
     
     let datePicker = UIDatePicker()
-    let formatterStr = "h:mm a , yyyy/MM/dd"
+    let formatterStr = "yyyy/MM/dd , h:mm a"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,12 +59,6 @@ class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         EventDate.text = datePicker.date.toString(formatterStr, identifier)
     }
     
-//
-//    @objc func timeChanged () {
-//        EventTime.text = core.timeFormatter.string(from: timePicker.date)
-//    }
-//
-    
     @IBAction func add(_ sender: Any) {
         if vcType == .Normal {
             if lastIndex > -1 {
@@ -73,7 +67,7 @@ class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                 }else {
                     if datePicker.date > Date() {
                         let minute = datePicker.date.toString("mm", "en").intValue
-                        let hour = datePicker.date.toString("hh", "en").intValue
+                        let hour = datePicker.date.toString("HH", "en").intValue
                         let date = Calendar.current.date(bySettingHour: hour, minute: minute, second: 00, of: datePicker.date)!
                         myEvent = MyEvent.init(id: lastIndex, eventName: EventName.text ?? "", calendarType: CalendarType.selectedSegmentIndex, date: date, color: selectedColor, alertStatus: alertStatus)
                         saveToCoreData()
@@ -121,7 +115,7 @@ class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             }else {
                 if datePicker.date > Date() {
                     let minute = datePicker.date.toString("mm", "en").intValue
-                    let hour = datePicker.date.toString("hh", "en").intValue
+                    let hour = datePicker.date.toString("HH", "en").intValue
                     let date = Calendar.current.date(bySettingHour: hour, minute: minute, second: 00, of: datePicker.date)!
                     let newEvent = MyEvent.init(id: self.myEvent.id, eventName: EventName.text ?? "", calendarType: CalendarType.selectedSegmentIndex, date: date, color: selectedColor, alertStatus: alertStatus)
                     editEvent(myEvent: newEvent) {
@@ -178,8 +172,7 @@ class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             Helper.showBasicAlert(title: "تم ✅", message: "تم حفظ المناسبة بنجاح", buttonTitle: "موافق", isBlue: true, vc: self) {
                 self.navigationController?.popViewController(animated: true)
             }
-        }
-        catch {
+        }catch {
             self.showToast("Error. vc: \(self.description ) Line: \(#line)")
         }
     }

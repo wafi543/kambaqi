@@ -60,6 +60,14 @@ class MyEventCell: UITableViewCell {
         timer?.invalidate()
     }
     
+    override func willTransition(to state: UITableViewCell.StateMask) {
+        print("willTransition")
+    }
+    
+    override func willRemoveSubview(_ subview: UIView) {
+        print("willRemoveSubview")
+    }
+    
     func configureShapesAndTimer () {
         // create my track
         let secondsPath = UIBezierPath(arcCenter: SecondView.center, radius: self.radiusShape, startAngle: -CGFloat.pi / 2, endAngle: 2 * CGFloat.pi, clockwise: true)
@@ -116,6 +124,7 @@ class MyEventCell: UITableViewCell {
     
     @objc func updateTime() {
         timeLeft = myEvent.date.timeIntervalSinceNow
+        print("myEvent.id: \(myEvent.id), myEvent.eventName: \(myEvent.eventName), date: \(myEvent.date), timeleft: \(timeLeft)")
         if timeLeft > 0 {
             Message.isHidden = true
             SecondLabel.text = timeLeft.seconds

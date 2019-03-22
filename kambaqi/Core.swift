@@ -168,4 +168,12 @@ class Core {
 //    }
 //    
 
+    func minSpacing (width : CGFloat) -> Int {
+        switch width {
+        case 667:
+            return 10
+        default:
+            return 10
+        }
+    }
 }

@@ -54,7 +54,7 @@ class MyEventsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBAction func addEvent(_ sender: Any) {
         let vc = mainStoryBoard.instantiateViewController(withIdentifier: "AddEventVC") as! AddEventVC
-        vc.lastIndex = myEvents.count
+        if let id = myEvents.last?.id {vc.lastIndex = id + 1} else {vc.lastIndex = 0}
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -77,7 +77,6 @@ class MyEventsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @objc func edit(sender : UIButton) {
         let myEvent = myEvents[sender.tag]
         let vc = mainStoryBoard.instantiateViewController(withIdentifier: "AddEventVC") as! AddEventVC
-        vc.lastIndex = myEvents.count
         vc.vcType = .EditVC
         vc.myEvent = myEvent
         navigationController?.pushViewController(vc, animated: true)
