@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
     
@@ -24,7 +25,7 @@ class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     var lastIndex = -1
     var selectedColor = 0
     var selectedCalendar = 0
-    var status = true
+    var alertStatus = true
     
     let datePicker = UIDatePicker()
     let formatterStr = "h:mm a , yyyy/MM/dd"
@@ -40,13 +41,13 @@ class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         
         if vcType == .EditVC {
             var identifier = "en"; if myEvent.calendarType == 0 {identifier = "en_SA"}
-            if myEvent.status {StatusSegment.tintColor = colors.enabled} else {StatusSegment.tintColor = colors.disabled}
+            if myEvent.alertStatus {StatusSegment.tintColor = colors.enabled} else {StatusSegment.tintColor = colors.disabled}
             EventName.text = myEvent.eventName
             EventDate.text = myEvent.date.toString(formatterStr, identifier)
             selectedColor = myEvent.color
             colorsCollectionView.reloadData()
             CalendarType.selectedSegmentIndex = myEvent.calendarType
-            if myEvent.status {StatusSegment.selectedSegmentIndex = 0}
+            if myEvent.alertStatus {StatusSegment.selectedSegmentIndex = 0}
             else {StatusSegment.selectedSegmentIndex = 1}
             addButton.setTitle("تعديل", for: .normal)
             datePicker.date = myEvent.date
@@ -74,8 +75,9 @@ class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                         let minute = datePicker.date.toString("mm", "en").intValue
                         let hour = datePicker.date.toString("hh", "en").intValue
                         let date = Calendar.current.date(bySettingHour: hour, minute: minute, second: 00, of: datePicker.date)!
-                        myEvent = MyEvent.init(id: lastIndex, eventName: EventName.text ?? "", calendarType: CalendarType.selectedSegmentIndex, date: date, color: selectedColor, status: status)
+                        myEvent = MyEvent.init(id: lastIndex, eventName: EventName.text ?? "", calendarType: CalendarType.selectedSegmentIndex, date: date, color: selectedColor, alertStatus: alertStatus)
                         saveToCoreData()
+                        if myEvent.alertStatus {core.configureNotification(myEvent: myEvent, vc: self)}
                     }else {
                         Helper.showBasicAlert(title: "تنبيه ⚠️", message: "زمن المناسبة قد مضى", buttonTitle: "موافق", isBlue: false, vc: self, completion: nil)
                     }
@@ -99,7 +101,7 @@ class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                         results?[0].setValue(myEvent.eventName, forKey: "eventName")
                         results?[0].setValue(myEvent.date, forKey: "date")
                         results?[0].setValue(myEvent.color, forKey: "color")
-                        results?[0].setValue(myEvent.status, forKey: "status")
+                        results?[0].setValue(myEvent.alertStatus, forKey: "alertStatus")
                         do {
                             try context.save()
                             completion?()
@@ -121,11 +123,13 @@ class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                     let minute = datePicker.date.toString("mm", "en").intValue
                     let hour = datePicker.date.toString("hh", "en").intValue
                     let date = Calendar.current.date(bySettingHour: hour, minute: minute, second: 00, of: datePicker.date)!
-                    let newEvent = MyEvent.init(id: self.myEvent.id, eventName: EventName.text ?? "", calendarType: CalendarType.selectedSegmentIndex, date: date, color: selectedColor, status: status)
+                    let newEvent = MyEvent.init(id: self.myEvent.id, eventName: EventName.text ?? "", calendarType: CalendarType.selectedSegmentIndex, date: date, color: selectedColor, alertStatus: alertStatus)
                     editEvent(myEvent: newEvent) {
                         Helper.showBasicAlert(title: "تم ✅", message: "تم تعديل البيانات بنجاح", buttonTitle: "موافق", isBlue: true, vc: self, completion: {
                             self.navigationController?.popViewController(animated: true)
                         })
+                        if newEvent.alertStatus {core.configureNotification(myEvent: newEvent, vc: self)}
+                        else {core.removePendingNotification(newEvent)}
                     }
                 }else {
                     Helper.showBasicAlert(title: "تنبيه ⚠️", message: "زمن المناسبة قد مضى", buttonTitle: "موافق", isBlue: false, vc: self, completion: nil)
@@ -135,8 +139,8 @@ class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     }
     
     @IBAction func statusChanged(_ sender: Any) {
-        status = (StatusSegment.selectedSegmentIndex == 0)
-        if status {StatusSegment.tintColor = colors.enabled} else {StatusSegment.tintColor = colors.disabled}
+        alertStatus = (StatusSegment.selectedSegmentIndex == 0)
+        if alertStatus {StatusSegment.tintColor = colors.enabled} else {StatusSegment.tintColor = colors.disabled}
     }
     
     @IBAction func calendarChanged(_ sender: Any) {
@@ -168,7 +172,7 @@ class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         newObject.setValue(myEvent.eventName, forKey: "eventName")
         newObject.setValue(myEvent.date, forKey: "date")
         newObject.setValue(myEvent.color, forKey: "color")
-        newObject.setValue(myEvent.status, forKey: "status")
+        newObject.setValue(myEvent.alertStatus, forKey: "alertStatus")
         do {
             try context.save()
             Helper.showBasicAlert(title: "تم ✅", message: "تم حفظ المناسبة بنجاح", buttonTitle: "موافق", isBlue: true, vc: self) {

@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import ARSLineProgress
+import UserNotifications
 
 class MyEventsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var mainTableView: UITableView!
@@ -35,8 +36,8 @@ class MyEventsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let eventName = data.value(forKey: "eventName") as? String ?? ""
                 let date = data.value(forKey: "date") as? Date ?? Date()
                 let color = data.value(forKey: "color") as? Int ?? 0
-                let status = data.value(forKey: "status") as? Bool ?? false
-                let myEvent = MyEvent.init(id: id, eventName: eventName, calendarType: calendarType, date: date, color: color, status: status)
+                let alertStatus = data.value(forKey: "alertStatus") as? Bool ?? false
+                let myEvent = MyEvent.init(id: id, eventName: eventName, calendarType: calendarType, date: date, color: color, alertStatus: alertStatus)
                 self.myEvents.append(myEvent)
             }
             DispatchQueue.main.async {self.mainTableView.reloadData(); ARSLineProgress.hide()}
@@ -97,16 +98,16 @@ class MyEventsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             } catch {
                 print ("There was an error")
             }
-        } 
+        }
         
         self.showTwoActions(title: "تأكيد الحذف", subtitle: "سيتم حذف عنصر، هل أنت متأكد؟", actionTitle: "تأكيد", cancelTitle: "إلغاء", actionStyle: .destructive, cancelStyle: .default, cancelHandler: nil) { (_) in
             // delete object
             let myEvent = self.myEvents[sender.tag]
             deleteEvent(withID: myEvent.id, completion: {
                 self.getDataOffline()
+                core.removePendingNotification(myEvent)
                 Helper.showBasicAlert(title: "تم ✅", message: "تم حذف المناسبة بنجاح", buttonTitle: "موافق", isBlue: true, vc: self, completion: nil)
             })
-            
         }
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class MainVC: UIViewController , UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     override var preferredStatusBarStyle: UIStatusBarStyle {return .lightContent}
@@ -20,6 +21,17 @@ class MainVC: UIViewController , UICollectionViewDelegate, UICollectionViewDataS
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
         containerView.frame.origin = CGPoint(x: view.frame.width, y: 0)
+        
+        // Request Authorization for Local Norification
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {
+            (granted, error) in
+            if granted {
+                print("yes")
+            } else {
+                print("No")
+            }
+        }
+        
     }
     
     @IBAction func showMenu(_ sender: Any) {

@@ -23,7 +23,7 @@ struct MyEvent {
     var calendarType : Int
     var date : Date
     var color : Int
-    var status : Bool
+    var alertStatus : Bool
 }
 
 struct Photo {

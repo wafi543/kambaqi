@@ -56,7 +56,6 @@ class EventsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         newObject.setValue(event.eventInterval, forKey: "eventInterval")
         newObject.setValue(event.eventName, forKey: "eventName")
         newObject.setValue(event.date, forKey: "date")
-        print(newObject)
         do {try context.save()} catch {print("Error. vc: \(self.description ) Line: \(#line)")}
     }
     
@@ -83,7 +82,7 @@ class EventsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let event = Event.init(id: id, calendarType: calendarType, eventInterval: eventInterval, eventName: eventName, date: date)
                 
                 self.saveToCoreData(event)
-                
+//                core.configureNotificationForEvent(event: event, vc: self)
                 let isEventDisabled = defauls.bool(forKey: "\(event.id)-switch")
                 if isEventDisabled == false {self.events.append(event)}
                 

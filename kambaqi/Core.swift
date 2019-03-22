@@ -11,6 +11,7 @@ import UIKit
 import ARSLineProgress
 import Firebase
 import CoreData
+import UserNotifications
 
 // Public Declaration
 let defauls = UserDefaults.standard
@@ -110,4 +111,61 @@ class Core {
         }
     }
     
+    func configureNotification (myEvent : MyEvent, vc : UIViewController) {
+        print("configureNotification : \(myEvent.eventName), id: MyEvent-\(myEvent.id)")
+        let content = UNMutableNotificationContent()
+        content.sound = UNNotificationSound.default
+        content.title = myEvent.eventName
+        content.body = "حان الوقت"
+        let date = myEvent.date
+        let identifier = "Kambaqi-MyEvents-\(myEvent.id)"
+        
+        let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: identifier,
+                                            content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: { (error) in
+            if error != nil {Helper.showErrorMessage(error, #line, vc); return}
+            print("Notification has been added successfully. for : \(myEvent.eventName)")
+        })
+    }
+    
+    func removePendingNotification (_ myEvent : MyEvent) {
+        print("removePendingNotification: \(myEvent.eventName)")
+        UNUserNotificationCenter.current().getPendingNotificationRequests { (notificationRequests) in
+            var identifiers: [String] = []
+            
+            for notification in notificationRequests {
+                if notification.identifier == "Kambaqi-MyEvents-\(myEvent.id)" {
+                    identifiers.append(notification.identifier)
+                }
+            }
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: identifiers)
+        }
+    }
+    
+//    
+//    func configureNotificationForEvent (event : Event, vc : UIViewController) {
+//        print("configureNotification : \(event.eventName), id: \(event.id)")
+//        let content = UNMutableNotificationContent()
+//        content.sound = UNNotificationSound.default
+//        content.title = event.eventName
+//        content.body = "حان الوقت"
+//        let date = event.date
+//        let identifier = "Kambaqi-Events-\(event.id)"
+//        
+//        let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: date)
+//        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+////        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+//        let request = UNNotificationRequest(identifier: identifier,
+//                                            content: content, trigger: trigger)
+//        UNUserNotificationCenter.current().add(request, withCompletionHandler: { (error) in
+//            if error != nil {Helper.showErrorMessage(error, #line, vc); return}
+//            print("Notification has been added successfully. for : \(event.eventName)")
+//        })
+//    }
+//    
+
 }
