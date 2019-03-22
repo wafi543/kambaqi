@@ -123,7 +123,9 @@ class AddEventVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                     let date = Calendar.current.date(bySettingHour: hour, minute: minute, second: 00, of: datePicker.date)!
                     let newEvent = MyEvent.init(id: self.myEvent.id, eventName: EventName.text ?? "", calendarType: CalendarType.selectedSegmentIndex, date: date, color: selectedColor, status: status)
                     editEvent(myEvent: newEvent) {
-                        Helper.showBasicAlert(title: "تم ✅", message: "تم تعديل البيانات بنجاح", buttonTitle: "موافق", isBlue: true, vc: self, completion: nil)
+                        Helper.showBasicAlert(title: "تم ✅", message: "تم تعديل البيانات بنجاح", buttonTitle: "موافق", isBlue: true, vc: self, completion: {
+                            self.navigationController?.popViewController(animated: true)
+                        })
                     }
                 }else {
                     Helper.showBasicAlert(title: "تنبيه ⚠️", message: "زمن المناسبة قد مضى", buttonTitle: "موافق", isBlue: false, vc: self, completion: nil)

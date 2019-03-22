@@ -43,7 +43,11 @@ class MyEventsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         } catch {print("Failed")}
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+//    override func viewDidAppear(_ animated: Bool) {
+//        getDataOffline()
+//    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         getDataOffline()
     }
     

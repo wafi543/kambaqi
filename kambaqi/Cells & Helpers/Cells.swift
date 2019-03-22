@@ -115,9 +115,9 @@ class MyEventCell: UITableViewCell {
     }
     
     @objc func updateTime() {
+        timeLeft = myEvent.date.timeIntervalSinceNow
         if timeLeft > 0 {
             Message.isHidden = true
-            timeLeft = myEvent.date.timeIntervalSinceNow
             SecondLabel.text = timeLeft.seconds
             MinuteLabel.text = timeLeft.minutes
             HourLabel.text = timeLeft.hours
@@ -144,7 +144,6 @@ class MyEventCell: UITableViewCell {
             HourLabel.text = "0"
             DayLabel.text = "0"
             Message.isHidden = false
-            timer?.invalidate()
         }
     }
     
