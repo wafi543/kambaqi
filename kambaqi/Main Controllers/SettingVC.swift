@@ -13,6 +13,7 @@ import GoogleMobileAds
 
 class SettingVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADBannerViewDelegate {
     @IBOutlet var mainTableView: UITableView!
+    @IBOutlet var AdView: UIView!
     
     var events : [Event] = []
     var bannerView: GADBannerView!
@@ -87,7 +88,7 @@ class SettingVC: UIViewController, UITableViewDelegate, UITableViewDataSource, G
 //        self.showToast(message)
         bannerView.alpha = 0
         UIView.animate(withDuration: 1, animations: {bannerView.alpha = 1})
-        core.addBannerViewToView(bannerView, view)
+        core.addBannerViewToView(bannerView, AdView)
     }
     
     /// Tells the delegate an ad request failed.

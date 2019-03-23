@@ -14,6 +14,7 @@ class MainVC: UIViewController , UICollectionViewDelegate, UICollectionViewDataS
     override var preferredStatusBarStyle: UIStatusBarStyle {return .lightContent}
     @IBOutlet var mainCollectionView: UICollectionView!
     @IBOutlet var containerView: UIView!
+    @IBOutlet var AdView: UIView!
     var bannerView: GADBannerView!
     
     let shadowView : UIButton = {let tmp = UIButton();tmp.setTitle("", for: .normal); tmp.backgroundColor = UIColor.black; tmp.alpha = 0.3; return tmp}()
@@ -102,7 +103,7 @@ class MainVC: UIViewController , UICollectionViewDelegate, UICollectionViewDataS
 //        self.showToast(message)
         bannerView.alpha = 0
         UIView.animate(withDuration: 1, animations: {bannerView.alpha = 1})
-        core.addBannerViewToView(bannerView, view)
+        core.addBannerViewToView(bannerView, AdView)
     }
     
     /// Tells the delegate an ad request failed.

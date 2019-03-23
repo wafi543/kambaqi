@@ -13,6 +13,7 @@ class TodayVC: UIViewController, GADBannerViewDelegate {
     @IBOutlet var DayName: UILabel!
     @IBOutlet var Gregorian: UILabel!
     @IBOutlet var Hijri: UILabel!
+    @IBOutlet var AdView: UIView!
     
     var bannerView: GADBannerView!
     
@@ -38,7 +39,7 @@ class TodayVC: UIViewController, GADBannerViewDelegate {
 //        self.showToast(message)
         bannerView.alpha = 0
         UIView.animate(withDuration: 1, animations: {bannerView.alpha = 1})
-        core.addBannerViewToView(bannerView, view)
+        core.addBannerViewToView(bannerView, AdView)
     }
     
     /// Tells the delegate an ad request failed.
