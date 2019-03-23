@@ -554,9 +554,6 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                                         <real key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -914,7 +911,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" contentInsetAdjustmentBehavior="scrollableAxes" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Sw-0k-rNm">
-                                <rect key="frame" x="0.0" y="20" width="375" height="607"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="scrollIndicatorInsets" minX="5" minY="5" maxX="5" maxY="10"/>
                                 <prototypes>
@@ -1149,7 +1146,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="yXJ-vW-Dhm" firstAttribute="bottom" secondItem="7Sw-0k-rNm" secondAttribute="bottom" constant="40" id="ASQ-67-QHX"/>
+                            <constraint firstItem="yXJ-vW-Dhm" firstAttribute="bottom" secondItem="7Sw-0k-rNm" secondAttribute="bottom" id="ASQ-67-QHX"/>
                             <constraint firstItem="yXJ-vW-Dhm" firstAttribute="trailing" secondItem="7Sw-0k-rNm" secondAttribute="trailing" id="ETb-bT-xhe"/>
                             <constraint firstItem="7Sw-0k-rNm" firstAttribute="leading" secondItem="yXJ-vW-Dhm" secondAttribute="leading" id="MrS-FZ-6UT"/>
                             <constraint firstItem="7Sw-0k-rNm" firstAttribute="top" secondItem="yXJ-vW-Dhm" secondAttribute="top" id="pSN-IE-2mX"/>

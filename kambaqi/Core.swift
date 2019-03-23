@@ -74,9 +74,10 @@ class Core {
     }
     
     func remainingDays (_ date : Date) -> Int {
-        var date2 = date; if date2 < Date() {date2.addDaysComponent(365)}
+        var date2 = date
+        if date2 < Date() {if Date().days(from: date2) > 0 {date2.addDaysComponent(365)} else {return 0}}
         let days = date2.days(from: Date())
-        if date2.hours(from: Date()) % 24 > 1 {return days + 1}else {return days}
+        if date2.hours(from: Date()) % 24 > 1 {return days + 1} else {return days}
     }
     
     func deleteEntity (_ entity : String) {
@@ -168,10 +169,15 @@ class Core {
 //    }
 //    
 
-    func minSpacing (width : CGFloat) -> Int {
-        switch width {
-        case 667:
-            return 10
+    func minSpacing (height : CGFloat) -> CGFloat {
+        print(height)
+        switch height {
+        case 812:
+            return 40
+        case 896:
+            return 60
+        case 736:
+            return 40
         default:
             return 10
         }

@@ -31,7 +31,10 @@ class MainVC: UIViewController , UICollectionViewDelegate, UICollectionViewDataS
                 print("No")
             }
         }
-        
+        let minSpacing = core.minSpacing(height: UIScreen.main.bounds.height)
+        let layout: UICollectionViewFlowLayout = mainCollectionView?.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.minimumLineSpacing = minSpacing
+        mainCollectionView.collectionViewLayout = layout
     }
     
     @IBAction func showMenu(_ sender: Any) {
