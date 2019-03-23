@@ -137,8 +137,8 @@
 			children = (
 				ABDAE104224152DF00BFE130 /* Helper4Swift.swift */,
 				ABDAE103224152DF00BFE130 /* Cells.swift */,
-				ABAE227C2243236D0041746C /* MenuCell.xib */,
 				ABDAE105224152DF00BFE130 /* Structs & Models.swift */,
+				ABAE227C2243236D0041746C /* MenuCell.xib */,
 			);
 			path = "Cells & Helpers";
 			sourceTree = "<group>";

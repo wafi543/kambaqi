@@ -12,12 +12,14 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var socialTableView: UITableView!
     @IBOutlet var settingTableView: UITableView!
     @IBOutlet var privacyTableView: UITableView!
+    @IBOutlet var Version: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         socialTableView.delegate = self; socialTableView.dataSource = self
         settingTableView.delegate = self; settingTableView.dataSource = self
         privacyTableView.delegate = self; privacyTableView.dataSource = self
+        Version.text = "Version: \(helper.AppVerion(Status: true)).\(helper.AppVerion(Status: false))"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

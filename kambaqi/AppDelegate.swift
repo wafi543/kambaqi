@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import FirebaseCore
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,7 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
-        
+        GADMobileAds.sharedInstance().start { (status) in
+            print("GADMobileAds init Status : \(status)")
+        }
         return true
     }
 

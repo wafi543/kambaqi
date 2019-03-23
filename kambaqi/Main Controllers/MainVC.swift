@@ -15,6 +15,7 @@ class MainVC: UIViewController , UICollectionViewDelegate, UICollectionViewDataS
     @IBOutlet var mainCollectionView: UICollectionView!
     @IBOutlet var containerView: UIView!
     var bannerView: GADBannerView!
+    
     let shadowView : UIButton = {let tmp = UIButton();tmp.setTitle("", for: .normal); tmp.backgroundColor = UIColor.black; tmp.alpha = 0.3; return tmp}()
     
     override func viewDidLoad() {
@@ -36,12 +37,13 @@ class MainVC: UIViewController , UICollectionViewDelegate, UICollectionViewDataS
         let layout: UICollectionViewFlowLayout = mainCollectionView?.collectionViewLayout as! UICollectionViewFlowLayout
         layout.minimumLineSpacing = minSpacing
         mainCollectionView.collectionViewLayout = layout
+        
+        // Add BannerView of GoogleMobileAds
         bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-//        addBannerViewToView(bannerView)
         bannerView.adUnitID = core.BannerID
         bannerView.rootViewController = self
-        bannerView.load(GADRequest())
         bannerView.delegate = self
+        bannerView.load(GADRequest())
     }
     
     @IBAction func showMenu(_ sender: Any) {
@@ -95,18 +97,19 @@ class MainVC: UIViewController , UICollectionViewDelegate, UICollectionViewDataS
     
     /// Tells the delegate an ad request loaded an ad.
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-        print("adViewDidReceiveAd")
+        let message = "adViewDidReceiveAd"
+        print(message)
+//        self.showToast(message)
         bannerView.alpha = 0
-        UIView.animate(withDuration: 1, animations: {
-            bannerView.alpha = 1
-        })
+        UIView.animate(withDuration: 1, animations: {bannerView.alpha = 1})
         core.addBannerViewToView(bannerView, view)
     }
     
     /// Tells the delegate an ad request failed.
-    func adView(_ bannerView: GADBannerView,
-                didFailToReceiveAdWithError error: GADRequestError) {
-        print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        let message = "adView:didFailToReceiveAdWithError: \(error.localizedDescription)"
+        print(message)
+//        self.showToast(message)
     }
     
     /// Tells the delegate that a full-screen view will be presented in response

@@ -31,7 +31,7 @@ class Core {
     let DeveloperEmail = "wafi543@outlook.sa"
     let DeveloperPhone = "+966570634459"
     let AppURL = "https://itunes.apple.com/app/id1447849679"
-    let BannerID = "ca-app-pub-5725271673199016/9866202148" // you shouuld update
+    let BannerID = "ca-app-pub-5725271673199016/7013287027"
     let DeviceModel = UIDevice.current.model
     let SystemVersion = UIDevice.current.systemVersion
     let myFormatter : DateFormatter = {let formatter = DateFormatter(); formatter.dateFormat = "yyyy/MM/dd"; return formatter} ()

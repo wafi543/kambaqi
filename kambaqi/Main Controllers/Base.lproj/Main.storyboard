@@ -1212,22 +1212,35 @@
                                         </constraints>
                                     </tableView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XOQ-7g-G0y">
-                                        <rect key="frame" x="0.0" y="392" width="295" height="115"/>
+                                        <rect key="frame" x="0.0" y="392" width="295" height="95"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bmC-vK-7BV">
+                                        <rect key="frame" x="0.0" y="487" width="295" height="20"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="8kF-di-8mS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="bmC-vK-7BV" firstAttribute="top" secondItem="XOQ-7g-G0y" secondAttribute="bottom" id="0hg-gU-Wau"/>
+                                    <constraint firstAttribute="bottom" secondItem="bmC-vK-7BV" secondAttribute="bottom" id="3NQ-7K-Lt3"/>
                                     <constraint firstAttribute="trailing" secondItem="XOQ-7g-G0y" secondAttribute="trailing" id="BhF-FM-OI9"/>
                                     <constraint firstAttribute="trailing" secondItem="ub9-I1-AxC" secondAttribute="trailing" id="D8d-pQ-6RW"/>
                                     <constraint firstItem="ub9-I1-AxC" firstAttribute="top" secondItem="kog-sk-zyI" secondAttribute="bottom" constant="1" id="JNI-2k-TFS"/>
+                                    <constraint firstItem="bmC-vK-7BV" firstAttribute="leading" secondItem="QAo-Uk-iCM" secondAttribute="leading" id="K2z-if-zCl"/>
                                     <constraint firstItem="XOQ-7g-G0y" firstAttribute="top" secondItem="ub9-I1-AxC" secondAttribute="bottom" constant="1" id="P2d-mN-bL9"/>
-                                    <constraint firstAttribute="bottom" secondItem="XOQ-7g-G0y" secondAttribute="bottom" id="Rd5-5z-twO"/>
                                     <constraint firstItem="XOQ-7g-G0y" firstAttribute="leading" secondItem="QAo-Uk-iCM" secondAttribute="leading" id="U81-bN-hnP"/>
                                     <constraint firstItem="kog-sk-zyI" firstAttribute="top" secondItem="QAo-Uk-iCM" secondAttribute="top" id="VvY-BK-EBl"/>
                                     <constraint firstItem="kog-sk-zyI" firstAttribute="leading" secondItem="QAo-Uk-iCM" secondAttribute="leading" id="ZUA-8t-h4h"/>
                                     <constraint firstItem="ub9-I1-AxC" firstAttribute="leading" secondItem="QAo-Uk-iCM" secondAttribute="leading" id="hiq-oS-LKX"/>
                                     <constraint firstAttribute="trailing" secondItem="kog-sk-zyI" secondAttribute="trailing" id="thE-r4-kr9"/>
+                                    <constraint firstAttribute="trailing" secondItem="bmC-vK-7BV" secondAttribute="trailing" id="z5f-Lw-25t"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1244,6 +1257,7 @@
                         <viewLayoutGuide key="safeArea" id="SRd-xP-jXo"/>
                     </view>
                     <connections>
+                        <outlet property="Version" destination="bmC-vK-7BV" id="tF2-76-wZZ"/>
                         <outlet property="privacyTableView" destination="XOQ-7g-G0y" id="BEe-e2-bSB"/>
                         <outlet property="settingTableView" destination="ub9-I1-AxC" id="9qH-JB-tPz"/>
                         <outlet property="socialTableView" destination="kog-sk-zyI" id="105-83-vjY"/>
