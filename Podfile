@@ -7,6 +7,7 @@ target 'kambaqi' do
 
   # Pods for kambaqi
 
+pod 'Google-Mobile-Ads-SDK'
 pod 'Firebase/Core'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'

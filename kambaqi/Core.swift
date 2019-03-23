@@ -31,6 +31,7 @@ class Core {
     let DeveloperEmail = "wafi543@outlook.sa"
     let DeveloperPhone = "+966570634459"
     let AppURL = "https://itunes.apple.com/app/id1447849679"
+    let BannerID = "ca-app-pub-5725271673199016/9866202148" // you shouuld update
     let DeviceModel = UIDevice.current.model
     let SystemVersion = UIDevice.current.systemVersion
     let myFormatter : DateFormatter = {let formatter = DateFormatter(); formatter.dateFormat = "yyyy/MM/dd"; return formatter} ()
@@ -185,5 +186,26 @@ class Core {
         default:
             return 10
         }
+    }
+    
+    func addBannerViewToView(_ bannerView: GADBannerView, _ view : UIView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: view.safeAreaLayoutGuide,
+                                attribute: .bottom,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+            ])
     }
 }

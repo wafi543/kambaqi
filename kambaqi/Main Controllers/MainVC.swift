@@ -8,12 +8,13 @@
 
 import UIKit
 import UserNotifications
+import GoogleMobileAds
 
-class MainVC: UIViewController , UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class MainVC: UIViewController , UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, GADBannerViewDelegate {
     override var preferredStatusBarStyle: UIStatusBarStyle {return .lightContent}
     @IBOutlet var mainCollectionView: UICollectionView!
     @IBOutlet var containerView: UIView!
-    
+    var bannerView: GADBannerView!
     let shadowView : UIButton = {let tmp = UIButton();tmp.setTitle("", for: .normal); tmp.backgroundColor = UIColor.black; tmp.alpha = 0.3; return tmp}()
     
     override func viewDidLoad() {
@@ -35,6 +36,12 @@ class MainVC: UIViewController , UICollectionViewDelegate, UICollectionViewDataS
         let layout: UICollectionViewFlowLayout = mainCollectionView?.collectionViewLayout as! UICollectionViewFlowLayout
         layout.minimumLineSpacing = minSpacing
         mainCollectionView.collectionViewLayout = layout
+        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+//        addBannerViewToView(bannerView)
+        bannerView.adUnitID = core.BannerID
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.delegate = self
     }
     
     @IBAction func showMenu(_ sender: Any) {
@@ -85,5 +92,42 @@ class MainVC: UIViewController , UICollectionViewDelegate, UICollectionViewDataS
         super.viewWillDisappear(true)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
-
+    
+    /// Tells the delegate an ad request loaded an ad.
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        print("adViewDidReceiveAd")
+        bannerView.alpha = 0
+        UIView.animate(withDuration: 1, animations: {
+            bannerView.alpha = 1
+        })
+        core.addBannerViewToView(bannerView, view)
+    }
+    
+    /// Tells the delegate an ad request failed.
+    func adView(_ bannerView: GADBannerView,
+                didFailToReceiveAdWithError error: GADRequestError) {
+        print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+    
+    /// Tells the delegate that a full-screen view will be presented in response
+    /// to the user clicking on an ad.
+    func adViewWillPresentScreen(_ bannerView: GADBannerView) {
+        print("adViewWillPresentScreen")
+    }
+    
+    /// Tells the delegate that the full-screen view will be dismissed.
+    func adViewWillDismissScreen(_ bannerView: GADBannerView) {
+        print("adViewWillDismissScreen")
+    }
+    
+    /// Tells the delegate that the full-screen view has been dismissed.
+    func adViewDidDismissScreen(_ bannerView: GADBannerView) {
+        print("adViewDidDismissScreen")
+    }
+    
+    /// Tells the delegate that a user click will open another app (such as
+    /// the App Store), backgrounding the current app.
+    func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
+        print("adViewWillLeaveApplication")
+    }
 }
