@@ -74,10 +74,14 @@ class Core {
     }
     
     func remainingDays (_ date : Date) -> Int {
-        var date2 = date
-        if date2 < Date() {if Date().days(from: date2) > 0 {date2.addDaysComponent(365)} else {return 0}}
+//        var date2 = date
+//        if date2 < Date() {if Date().days(from: date2) > 0 {date2.addDaysComponent(365)} else {return 0}}
+//        let days = date2.days(from: Date())
+//        if date2.hours(from: Date()) % 24 > 1 {return days + 1} else {return days}
+        
+        var date2 = date; if date2 < Date() {date2.addDaysComponent(365)}
         let days = date2.days(from: Date())
-        if date2.hours(from: Date()) % 24 > 1 {return days + 1} else {return days}
+        if date2.hours(from: Date()) % 24 > 1 {return days + 1}else {return days}
     }
     
     func deleteEntity (_ entity : String) {
