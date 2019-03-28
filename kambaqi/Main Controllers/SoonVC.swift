@@ -78,7 +78,7 @@ class SoonVC: UIViewController, GADBannerViewDelegate {
             let event = remainingEvents[0]
             self.nextEvent = event
             self.EventName.text = event.eventName
-            self.Day.text = "\(core.remainingDays(event.date))"
+            self.Day.text = "\(core.remainingDays(event.date, event.eventInterval))"
             self.setMessage(event)
         }else {
 //            self.showToast("خطأ، اذا تكرر الخطأ تواصل مع الدعم الفني . SoonVC#\(#line)")
@@ -156,7 +156,7 @@ class SoonVC: UIViewController, GADBannerViewDelegate {
     }
     
     @IBAction func tweet(_ sender: Any) {
-        var urlStr = "https://twitter.com/intent/tweet?text=لقد تبقى \(core.remainingDays(nextEvent.date)) يوم لكي يحين موعد \(nextEvent.eventName)"
+        var urlStr = "https://twitter.com/intent/tweet?text=لقد تبقى \(core.remainingDays(nextEvent.date, nextEvent.eventInterval)) يوم لكي يحين موعد \(nextEvent.eventName)"
         urlStr = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         print(urlStr)
         if let url = URL(string: urlStr) {

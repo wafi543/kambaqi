@@ -74,15 +74,27 @@ class Core {
         }
     }
     
-    func remainingDays (_ date : Date) -> Int {
+    func remainingDays (_ date : Date, _ eventInterval : Int) -> Int {
 //        var date2 = date
 //        if date2 < Date() {if Date().days(from: date2) > 0 {date2.addDaysComponent(365)} else {return 0}}
 //        let days = date2.days(from: Date())
 //        if date2.hours(from: Date()) % 24 > 1 {return days + 1} else {return days}
         
-        var date2 = date; if date2 < Date() {date2.addDaysComponent(365)}
+        var date2 = date
+        if date2 < Date() {
+            if eventInterval == 2 {
+                date2.addDaysComponent(365)
+            }else {
+                if date2.days(from: Date()) < 0 {
+                    var component = DateComponents()
+                    component.month = 1
+                    date2 = Calendar.current.date(byAdding: component, to: date2)!
+                }
+            }
+        }
         let days = date2.days(from: Date())
-        if date2.hours(from: Date()) % 24 > 1 {return days + 1}else {return days}
+        print(date2.hours(from: Date()) % 24)
+        if date2.hours(from: Date()) % 24 >= 0 {return days + 1} else {return days}
     }
     
     func deleteEntity (_ entity : String) {

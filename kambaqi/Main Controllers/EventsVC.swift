@@ -112,10 +112,10 @@ class EventsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GA
         cell.Name.text = event.eventName
         
         if event.calendarType == 1 {
-            cell.Days.text = "\(core.remainingDays(event.date))"
+            cell.Days.text = "\(core.remainingDays(event.date, event.eventInterval))"
             cell.EventType.text = "\(core.eventIntervalStr(event.eventInterval)) ميلادي"
         }else {
-            cell.Days.text = "\(core.remainingDays(event.date))"
+            cell.Days.text = "\(core.remainingDays(event.date, event.eventInterval))"
             cell.EventType.text = "\(core.eventIntervalStr(event.eventInterval)) هجري"
         }
         
